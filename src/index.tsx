@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import {
   FlexBox,
@@ -7,9 +7,14 @@ import {
   Progress,
   Slide,
   Deck,
+  Image,
   Box,
+  Text,
 } from "spectacle";
 import "./index.css";
+import avatar from "./images/avatar.jpg";
+import trazableLogo from "./images/logo_trazable.png";
+import firstWorldProblemsMeme from "./images/first_world_problems.png";
 
 // SPECTACLE_CLI_TEMPLATE_START
 const template = () => (
@@ -49,7 +54,16 @@ const Presentation = () => (
       </FlexBox>
     </Slide>
     <Slide>
-      <Heading fontSize="h3">About me</Heading>
+      <FlexBox justifyContent="flex-start">
+        <div className="border-4 border-green-500 w-fit">
+          <Image src={avatar} width={600} />
+        </div>
+        <div className="text-white flex items-center flex-col pl-24">
+          <Text>Xavier Serrano</Text>
+          <Text>Software Enginner 🌍</Text>
+          <Image src={trazableLogo} width={300} className="mt-10" />
+        </div>
+      </FlexBox>
     </Slide>
     <Slide>
       <Heading fontSize="h3" className="text-red-600">
@@ -57,7 +71,9 @@ const Presentation = () => (
       </Heading>
     </Slide>
     <Slide>
-      <Heading fontSize="h3">User suffering</Heading>
+      <FlexBox justifyContent="center" alignContent="center" height="100%">
+        <Image src={firstWorldProblemsMeme} width={600} />
+      </FlexBox>
     </Slide>
     <Slide>
       <Heading fontSize="h3">
@@ -87,10 +103,14 @@ const Presentation = () => (
       <Heading fontSize="h3">Instrument clients: Human interaction</Heading>
     </Slide>
     <Slide>
-      <Heading fontSize="h3">React application example</Heading>
+      <Heading fontSize="h3">React example: Measure actions</Heading>
+    </Slide>
+    <Slide>
+      <Heading fontSize="h3">React example: Measure page data loading</Heading>
     </Slide>
     <Slide>
       <Heading fontSize="h3">Thank you</Heading>
+      <Heading fontSize="h3">Contribute to OpenTelemetry</Heading>
     </Slide>
   </Deck>
 );
