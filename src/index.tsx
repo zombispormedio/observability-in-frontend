@@ -4,7 +4,6 @@ import {
   FlexBox,
   Heading,
   FullScreen,
-  Progress,
   Slide,
   Deck,
   Image,
@@ -15,23 +14,8 @@ import "./index.css";
 import avatar from "./images/avatar.jpg";
 import trazableLogo from "./images/logo_trazable.png";
 import firstWorldProblemsMeme from "./images/first_world_problems.png";
-
-// SPECTACLE_CLI_TEMPLATE_START
-const template = () => (
-  <FlexBox
-    justifyContent="space-between"
-    position="absolute"
-    bottom={0}
-    width={1}
-  >
-    <Box padding="0 1em">
-      <FullScreen />
-    </Box>
-    <Box padding="1em">
-      <Progress />
-    </Box>
-  </FlexBox>
-);
+import busted from "./images/busted.jpg";
+import qrCode from "./images/qr-code.png";
 
 const theme = {
   colors: {
@@ -41,7 +25,7 @@ const theme = {
 };
 
 const Presentation = () => (
-  <Deck template={template} theme={theme}>
+  <Deck theme={theme}>
     <Slide>
       <FlexBox height="100%" flexDirection="column">
         <Heading margin="0px">
@@ -52,6 +36,11 @@ const Presentation = () => (
           React ❤️ OpenTelemetry
         </Heading>
       </FlexBox>
+      <div className="absolute bottom-0 left-0 mb-5 ml-5">
+        <Box padding="0 1em">
+          <FullScreen />
+        </Box>
+      </div>
     </Slide>
     <Slide>
       <FlexBox justifyContent="flex-start">
@@ -65,14 +54,49 @@ const Presentation = () => (
         </div>
       </FlexBox>
     </Slide>
-    <Slide>
-      <Heading fontSize="h3" className="text-red-600">
-        Error
-      </Heading>
+    <Slide
+      className="full-slide text-4xl p-10 font-light"
+      backgroundColor="rgb(255, 255, 255)"
+    >
+      TypeError: Cannot read property 'name' of undefined
     </Slide>
-    <Slide>
+    <Slide className="full-slide">
+      <Image src={busted} width="100%" />
+    </Slide>
+    <Slide backgroundColor="rgb(57, 146, 255)" className="full-slide">
+      <FlexBox alignItems="center" height="100%">
+        <FlexBox flexDirection="column" alignItems="flex-start">
+          <div className="text-d-h1 sm:text-d-j md:text-[length:120px] text-white">
+            :)
+          </div>
+          <div className="md:text-[length:30px] md:leading-[40px] text-white">
+            The website is dying. Try to refresh and cross your fingers 🤞
+            <br />
+            Possibly your data is not saved. Spooky. Spooky.
+          </div>
+          <FlexBox alignItems="flex-start" className="gap-3 mt-10">
+            <Image src={qrCode} width={96} height={96} />
+            <FlexBox
+              flexDirection="column"
+              alignItems="flex-start"
+              justifyContent="space-between"
+            >
+              <div className="text-white">
+                Maybe the website owner needs observability to solve this issue
+                fastly.
+              </div>
+              <div className="text-white mt-5">
+                Contact a support person, give them this info: <br />
+                Code: OPENTELEMETRY
+              </div>
+            </FlexBox>
+          </FlexBox>
+        </FlexBox>
+      </FlexBox>
+    </Slide>
+    <Slide backgroundColor="rgb(255, 255, 255)">
       <FlexBox justifyContent="center" alignContent="center" height="100%">
-        <Image src={firstWorldProblemsMeme} width={600} />
+        <Image src={firstWorldProblemsMeme} width={700} />
       </FlexBox>
     </Slide>
     <Slide>

@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.full-slide div:first-child {
+    padding: 0;
+}
