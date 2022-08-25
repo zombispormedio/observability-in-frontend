@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import {
   FlexBox,
   Heading,
@@ -9,6 +10,7 @@ import {
   Image,
   Box,
   Text,
+  Appear,
 } from "spectacle";
 import "./index.css";
 import avatar from "./images/avatar.jpg";
@@ -16,6 +18,7 @@ import trazableLogo from "./images/logo_trazable.png";
 import firstWorldProblemsMeme from "./images/first_world_problems.png";
 import busted from "./images/busted.jpg";
 import qrCode from "./images/qr-code.png";
+import observabilityImage from "./images/observability.png";
 
 const theme = {
   colors: {
@@ -60,6 +63,18 @@ const Presentation = () => (
     >
       TypeError: Cannot read property 'name' of undefined
     </Slide>
+    <Slide
+      className="full-slide text-4xl p-10 font-light"
+      backgroundColor="rgb(255, 255, 255)"
+    >
+      TypeError: undefined is not a function
+    </Slide>
+    <Slide
+      className="full-slide text-4xl p-10 font-light"
+      backgroundColor="rgb(255, 255, 255)"
+    >
+      RangeError: Maximum call stack size exceeded
+    </Slide>
     <Slide className="full-slide">
       <Image src={busted} width="100%" />
     </Slide>
@@ -99,38 +114,157 @@ const Presentation = () => (
         <Image src={firstWorldProblemsMeme} width={700} />
       </FlexBox>
     </Slide>
+    <Slide className="text-white">
+      <FlexBox
+        justifyContent="center"
+        alignContent="center"
+        height="100%"
+        flexDirection="column"
+      >
+        <Heading fontSize="h3">What can we do?</Heading>
+        <Appear>
+          <Text>Grafana?</Text>
+        </Appear>
+        <Appear>
+          <Text>Datadog?</Text>
+        </Appear>
+        <Appear>
+          <Text>More dashboards?</Text>
+        </Appear>
+      </FlexBox>
+    </Slide>
+    <Slide className="text-white">
+      <FlexBox
+        justifyContent="center"
+        alignContent="center"
+        height="100%"
+        flexDirection="column"
+      >
+        <Heading fontSize="h3">What can we do in the frontend?</Heading>
+        <Appear>
+          <Text>Sentry?</Text>
+        </Appear>
+        <Appear>
+          <Text>Magic scripts?</Text>
+        </Appear>
+        <Appear>
+          <Text>Session Replays?</Text>
+        </Appear>
+      </FlexBox>
+    </Slide>
+    <Slide className="text-white">
+      <FlexBox
+        justifyContent="center"
+        alignContent="center"
+        height="100%"
+        flexDirection="column"
+      >
+        <Heading fontSize="h3">
+          Magic scripts don't know about your application or your business
+        </Heading>
+      </FlexBox>
+    </Slide>
+
     <Slide>
-      <Heading fontSize="h3">
-        What do you do in the application? Grafana
-      </Heading>
+      <FlexBox
+        justifyContent="center"
+        alignContent="center"
+        height="100%"
+        flexDirection="column"
+      >
+        <Heading fontSize="h3">
+          Observability describes the world from the first-person perspective of
+          the software doing something.
+        </Heading>
+        <Heading fontSize="h3">
+          Software explaining itself from the inside out
+        </Heading>
+      </FlexBox>
+    </Slide>
+    <Slide className="text-white">
+      <FlexBox
+        justifyContent="center"
+        alignContent="center"
+        height="100%"
+        flexDirection="column"
+      >
+        <Heading fontSize="h3">
+          Why we need observability in the frontend?
+        </Heading>
+        <Appear>
+          <Text>Context</Text>
+        </Appear>
+        <Appear>
+          <Text>Explorability</Text>
+        </Appear>
+      </FlexBox>
+    </Slide>
+    <Slide className="text-white">
+      <FlexBox
+        justifyContent="center"
+        alignContent="center"
+        height="100%"
+        flexDirection="column"
+      >
+        <Heading fontSize="h3">Frontend is the last mile</Heading>
+        <Heading fontSize="h3">
+          The forgotten for observability/monitoring tools
+        </Heading>
+        <Text>
+          Because it is the closest thing to humans and nobody understands it
+        </Text>
+      </FlexBox>
+    </Slide>
+    <Slide className="text-white">
+      <FlexBox
+        justifyContent="center"
+        alignContent="center"
+        height="100%"
+        flexDirection="column"
+      >
+        <Heading fontSize="h3">OpenTelemetry</Heading>
+        <Heading fontSize="h3">The war horse</Heading>
+      </FlexBox>
+    </Slide>
+    <Slide className="text-white">
+      <FlexBox
+        justifyContent="center"
+        alignContent="center"
+        height="100%"
+        flexDirection="column"
+      >
+        <Heading fontSize="h3">
+          OpenTelemetry gives Metrics, Traces and Logs (The "three pillars of
+          observability")
+        </Heading>
+      </FlexBox>
+    </Slide>
+    <Slide className="text-white">
+      <FlexBox
+        justifyContent="center"
+        alignContent="center"
+        height="100%"
+        flexDirection="column"
+      >
+        <Image src={observabilityImage} width={500} />
+      </FlexBox>
     </Slide>
     <Slide>
-      <Heading fontSize="h3">What do you do in the frontend? Sentry</Heading>
+      <FlexBox
+        justifyContent="center"
+        alignContent="center"
+        height="100%"
+        flexDirection="column"
+      >
+        <Heading fontSize="h3">Instrument clients</Heading>
+        <Heading fontSize="h3">The challenge: Human Interaction</Heading>
+      </FlexBox>
     </Slide>
     <Slide>
-      <Heading fontSize="h3">
-        is it enough? Do you feel empowered when an issue comes?
-      </Heading>
+      <Heading fontSize="h3">Measure actions</Heading>
     </Slide>
     <Slide>
-      <Heading fontSize="h3">
-        How be empowered by observability? Context. Replicate the error
-      </Heading>
-    </Slide>
-    <Slide>
-      <Heading fontSize="h3">Last mile, backend easy, frontend hard</Heading>
-    </Slide>
-    <Slide>
-      <Heading fontSize="h3">OpenTelemetry</Heading>
-    </Slide>
-    <Slide>
-      <Heading fontSize="h3">Instrument clients: Human interaction</Heading>
-    </Slide>
-    <Slide>
-      <Heading fontSize="h3">React example: Measure actions</Heading>
-    </Slide>
-    <Slide>
-      <Heading fontSize="h3">React example: Measure page data loading</Heading>
+      <Heading fontSize="h3">Measure page data loading</Heading>
     </Slide>
     <Slide>
       <Heading fontSize="h3">Thank you</Heading>
@@ -139,4 +273,4 @@ const Presentation = () => (
   </Deck>
 );
 
-ReactDOM.render(<Presentation />, document.getElementById("root"));
+createRoot(document.getElementById("root")).render(<Presentation />);
