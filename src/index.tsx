@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import { createRoot } from "react-dom/client";
 import {
   FlexBox,
@@ -15,10 +14,11 @@ import {
 import "./index.css";
 import avatar from "./images/avatar.jpg";
 import trazableLogo from "./images/logo_trazable.png";
-import firstWorldProblemsMeme from "./images/first_world_problems.png";
-import busted from "./images/busted.jpg";
-import qrCode from "./images/qr-code.png";
 import observabilityImage from "./images/observability.png";
+import { ErrorPerformanceSlides } from "./slides/ErrorPerformance";
+import { UserPainSlides } from "./slides/UserPain";
+import { ThankYouSlide } from "./slides/ThankYou";
+import { ReferencesSlide } from "./slides/References";
 
 const theme = {
   colors: {
@@ -57,63 +57,8 @@ const Presentation = () => (
         </div>
       </FlexBox>
     </Slide>
-    <Slide
-      className="full-slide text-4xl p-10 font-light"
-      backgroundColor="rgb(255, 255, 255)"
-    >
-      TypeError: Cannot read property 'name' of undefined
-    </Slide>
-    <Slide
-      className="full-slide text-4xl p-10 font-light"
-      backgroundColor="rgb(255, 255, 255)"
-    >
-      TypeError: undefined is not a function
-    </Slide>
-    <Slide
-      className="full-slide text-4xl p-10 font-light"
-      backgroundColor="rgb(255, 255, 255)"
-    >
-      RangeError: Maximum call stack size exceeded
-    </Slide>
-    <Slide className="full-slide">
-      <Image src={busted} width="100%" />
-    </Slide>
-    <Slide backgroundColor="rgb(57, 146, 255)" className="full-slide">
-      <FlexBox alignItems="center" height="100%">
-        <FlexBox flexDirection="column" alignItems="flex-start">
-          <div className="text-d-h1 sm:text-d-j md:text-[length:120px] text-white">
-            :)
-          </div>
-          <div className="md:text-[length:30px] md:leading-[40px] text-white">
-            The website is dying. Try to refresh and cross your fingers 🤞
-            <br />
-            Possibly your data is not saved. Spooky. Spooky.
-          </div>
-          <FlexBox alignItems="flex-start" className="gap-3 mt-10">
-            <Image src={qrCode} width={96} height={96} />
-            <FlexBox
-              flexDirection="column"
-              alignItems="flex-start"
-              justifyContent="space-between"
-            >
-              <div className="text-white">
-                Maybe the website owner needs observability to solve this issue
-                fastly.
-              </div>
-              <div className="text-white mt-5">
-                Contact a support person, give them this info: <br />
-                Code: OPENTELEMETRY
-              </div>
-            </FlexBox>
-          </FlexBox>
-        </FlexBox>
-      </FlexBox>
-    </Slide>
-    <Slide backgroundColor="rgb(255, 255, 255)">
-      <FlexBox justifyContent="center" alignContent="center" height="100%">
-        <Image src={firstWorldProblemsMeme} width={700} />
-      </FlexBox>
-    </Slide>
+    <ErrorPerformanceSlides />
+    <UserPainSlides />
     <Slide className="text-white">
       <FlexBox
         justifyContent="center"
@@ -152,19 +97,6 @@ const Presentation = () => (
         </Appear>
       </FlexBox>
     </Slide>
-    <Slide className="text-white">
-      <FlexBox
-        justifyContent="center"
-        alignContent="center"
-        height="100%"
-        flexDirection="column"
-      >
-        <Heading fontSize="h3">
-          Magic scripts don't know about your application or your business
-        </Heading>
-      </FlexBox>
-    </Slide>
-
     <Slide>
       <FlexBox
         justifyContent="center"
@@ -176,6 +108,15 @@ const Presentation = () => (
           Observability describes the world from the first-person perspective of
           the software doing something.
         </Heading>
+      </FlexBox>
+    </Slide>
+    <Slide>
+      <FlexBox
+        justifyContent="center"
+        alignContent="center"
+        height="100%"
+        flexDirection="column"
+      >
         <Heading fontSize="h3">
           Software explaining itself from the inside out
         </Heading>
@@ -191,12 +132,6 @@ const Presentation = () => (
         <Heading fontSize="h3">
           Why we need observability in the frontend?
         </Heading>
-        <Appear>
-          <Text>Context</Text>
-        </Appear>
-        <Appear>
-          <Text>Explorability</Text>
-        </Appear>
       </FlexBox>
     </Slide>
     <Slide className="text-white">
@@ -207,12 +142,7 @@ const Presentation = () => (
         flexDirection="column"
       >
         <Heading fontSize="h3">Frontend is the last mile</Heading>
-        <Heading fontSize="h3">
-          The forgotten for observability/monitoring tools
-        </Heading>
-        <Text>
-          Because it is the closest thing to humans and nobody understands it
-        </Text>
+        <Text>The closest thing to humans/users/community/customers</Text>
       </FlexBox>
     </Slide>
     <Slide className="text-white">
@@ -257,6 +187,18 @@ const Presentation = () => (
         flexDirection="column"
       >
         <Heading fontSize="h3">Instrument clients</Heading>
+      </FlexBox>
+    </Slide>
+    <Slide>
+      <Heading fontSize="h3">Setup Opentelemetry</Heading>
+    </Slide>
+    <Slide>
+      <FlexBox
+        justifyContent="center"
+        alignContent="center"
+        height="100%"
+        flexDirection="column"
+      >
         <Heading fontSize="h3">The challenge: Human Interaction</Heading>
       </FlexBox>
     </Slide>
@@ -266,10 +208,8 @@ const Presentation = () => (
     <Slide>
       <Heading fontSize="h3">Measure page data loading</Heading>
     </Slide>
-    <Slide>
-      <Heading fontSize="h3">Thank you</Heading>
-      <Heading fontSize="h3">Contribute to OpenTelemetry</Heading>
-    </Slide>
+    <ThankYouSlide />
+    <ReferencesSlide />
   </Deck>
 );
 
