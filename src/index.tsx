@@ -19,6 +19,10 @@ import { ErrorPerformanceSlides } from "./slides/ErrorPerformance";
 import { UserPainSlides } from "./slides/UserPain";
 import { ThankYouSlide } from "./slides/ThankYou";
 import { ReferencesSlide } from "./slides/References";
+import { SetupOpenTelemetrySlide } from "./slides/SetupOpentelemetry";
+import { WhyObservabilitySlides } from "./slides/WhyObservability";
+import { MeasureActionsSlides } from "./slides/MeasureActions";
+import { MeasurePageDataLoadingSlides } from "./slides/MeasurePageDataLoading";
 
 const theme = {
   colors: {
@@ -108,43 +112,12 @@ const Presentation = () => (
           Observability describes the world from the first-person perspective of
           the software doing something.
         </Heading>
-      </FlexBox>
-    </Slide>
-    <Slide>
-      <FlexBox
-        justifyContent="center"
-        alignContent="center"
-        height="100%"
-        flexDirection="column"
-      >
         <Heading fontSize="h3">
           Software explaining itself from the inside out
         </Heading>
       </FlexBox>
     </Slide>
-    <Slide className="text-white">
-      <FlexBox
-        justifyContent="center"
-        alignContent="center"
-        height="100%"
-        flexDirection="column"
-      >
-        <Heading fontSize="h3">
-          Why we need observability in the frontend?
-        </Heading>
-      </FlexBox>
-    </Slide>
-    <Slide className="text-white">
-      <FlexBox
-        justifyContent="center"
-        alignContent="center"
-        height="100%"
-        flexDirection="column"
-      >
-        <Heading fontSize="h3">Frontend is the last mile</Heading>
-        <Text>The closest thing to humans/users/community/customers</Text>
-      </FlexBox>
-    </Slide>
+    <WhyObservabilitySlides />
     <Slide className="text-white">
       <FlexBox
         justifyContent="center"
@@ -187,11 +160,22 @@ const Presentation = () => (
         flexDirection="column"
       >
         <Heading fontSize="h3">Instrument clients</Heading>
+        <Heading fontSize="h3">The challenge: Human Interaction</Heading>
       </FlexBox>
     </Slide>
-    <Slide>
-      <Heading fontSize="h3">Setup Opentelemetry</Heading>
+    <SetupOpenTelemetrySlide />
+    <Slide className="text-white">
+      <FlexBox
+        justifyContent="center"
+        alignContent="center"
+        height="100%"
+        flexDirection="column"
+      >
+        <Heading fontSize="h3">Create an span</Heading>
+      </FlexBox>
     </Slide>
+    <MeasureActionsSlides />
+    <MeasurePageDataLoadingSlides />
     <Slide>
       <FlexBox
         justifyContent="center"
@@ -199,14 +183,15 @@ const Presentation = () => (
         height="100%"
         flexDirection="column"
       >
-        <Heading fontSize="h3">The challenge: Human Interaction</Heading>
+        <Heading fontSize="h3" className="underline cursor-pointer">
+          <a
+            href="https://github.com/zombispormedio/observable-flora"
+            target="_blank"
+          >
+            React application example
+          </a>
+        </Heading>
       </FlexBox>
-    </Slide>
-    <Slide>
-      <Heading fontSize="h3">Measure actions</Heading>
-    </Slide>
-    <Slide>
-      <Heading fontSize="h3">Measure page data loading</Heading>
     </Slide>
     <ThankYouSlide />
     <ReferencesSlide />
