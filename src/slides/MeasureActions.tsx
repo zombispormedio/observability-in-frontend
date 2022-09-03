@@ -63,10 +63,10 @@ return  (
         highlightRanges={[
           [1, 12],
           [16, 23],
-          [25, 31],
-          [34, 39],
-          [40, 43],
-          [44, 51],
+          [24, 31],
+          [33, 38],
+          [39, 42],
+          [43, 50],
         ]}
       >{`function useTracedMutation (arg1, arg2, arg3){
     const { mutationFn, ...restOfMutationArgs } = parseMutationArgs(arg1, arg2, arg3)
@@ -83,8 +83,7 @@ return  (
 
    return {
     ...rest,
-    mutate: useCallback<UseMutateFunction<TData, TError, TVariables, TContext>>(
-      (variables, options) => {
+    mutate: (variables, options) => {
         const span = getTracer().startSpan("mutate", {
             kind: SpanKind.CLIENT,
             attributes: {
@@ -124,7 +123,6 @@ return  (
       },
       [mutate]
     )
-    ),
   } 
 }
 `}</CodePane>

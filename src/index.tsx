@@ -14,7 +14,8 @@ import {
 import "./index.css";
 import avatar from "./images/avatar.jpg";
 import trazableLogo from "./images/logo_trazable.png";
-import observabilityImage from "./images/observability.png";
+import observabilityImage from "./images/observability.jpg";
+import ErrorReportingSessionReplaysDashboards from "./images/error_reporting_session_replays_dashboards.png";
 import { ErrorPerformanceSlides } from "./slides/ErrorPerformance";
 import { UserPainSlides } from "./slides/UserPain";
 import { ThankYouSlide } from "./slides/ThankYou";
@@ -22,10 +23,12 @@ import { ReferencesSlide } from "./slides/References";
 import { SetupOpenTelemetrySlide } from "./slides/SetupOpentelemetry";
 import { WhyObservabilitySlides } from "./slides/WhyObservability";
 import { MeasureActionsSlides } from "./slides/MeasureActions";
-import { MeasurePageLoadSlides } from "./slides/MeasurePageLoad";
+import { MeasurePageDataLoadSlides } from "./slides/MeasurePageDataLoad";
 import example from "./images/example.png";
 import { CreateSpanSlide } from "./slides/CreateSpan";
-import { MeasurePageLoadNavigationSlides } from "./slides/MeasurePageLoadNavigation";
+import { MeasurePageLoadNavigationSlides } from "./slides/MeasurePageDataLoadNavigation";
+import { FutureSlides } from "./slides/Future";
+import { OpenTelemetryIntroSlides } from "./slides/OpenTelemetryIntro";
 
 const theme = {
   colors: {
@@ -100,61 +103,38 @@ const Presentation = () => (
           <Text>Datadog?</Text>
         </Appear>
         <Appear>
-          <Text>Record more user sessions?</Text>
+          <Text>More user sessions recordings?</Text>
         </Appear>
       </FlexBox>
     </Slide>
-    <Slide>
+    <OpenTelemetryIntroSlides />
+    <Slide backgroundColor="rgb(255, 255, 255)">
       <FlexBox
         justifyContent="center"
         alignContent="center"
         height="100%"
         flexDirection="column"
       >
-        <Heading fontSize="h3">
-          Observability describes the world from the first-person perspective of
-          the software doing something.
-        </Heading>
-        <Heading fontSize="h3">
-          Software explaining itself from the inside out
-        </Heading>
+        <Image src={ErrorReportingSessionReplaysDashboards} width={600} />
+      </FlexBox>
+    </Slide>
+
+    <Slide className="text-white" backgroundColor="rgb(255, 255, 255)">
+      <FlexBox
+        justifyContent="center"
+        alignContent="center"
+        height="100%"
+        flexDirection="column"
+      >
+        <Text className="text-black uppercase">
+          It's not about dashboards, error reporting, session replays, logs,
+          metrics or traces. The thing that matters is that observability can
+          empower us to build better user experiences.
+        </Text>
+        <Image src={observabilityImage} width={450} />
       </FlexBox>
     </Slide>
     <WhyObservabilitySlides />
-    <Slide className="text-white">
-      <FlexBox
-        justifyContent="center"
-        alignContent="center"
-        height="100%"
-        flexDirection="column"
-      >
-        <Heading fontSize="h3">OpenTelemetry</Heading>
-        <Heading fontSize="h3">The war horse</Heading>
-      </FlexBox>
-    </Slide>
-    <Slide className="text-white">
-      <FlexBox
-        justifyContent="center"
-        alignContent="center"
-        height="100%"
-        flexDirection="column"
-      >
-        <Heading fontSize="h3">
-          OpenTelemetry gives Metrics, Traces and Logs (The "three pillars of
-          observability")
-        </Heading>
-      </FlexBox>
-    </Slide>
-    <Slide className="text-white">
-      <FlexBox
-        justifyContent="center"
-        alignContent="center"
-        height="100%"
-        flexDirection="column"
-      >
-        <Image src={observabilityImage} width={500} />
-      </FlexBox>
-    </Slide>
     <Slide>
       <FlexBox
         justifyContent="center"
@@ -173,6 +153,7 @@ const Presentation = () => (
         height="100%"
         flexDirection="column"
       >
+        <Image src={example} width={1200} />
         <Heading fontSize="h3" className="underline cursor-pointer">
           <a
             href="https://github.com/zombispormedio/observable-flora"
@@ -181,23 +162,14 @@ const Presentation = () => (
             React application example
           </a>
         </Heading>
-        <Image src={example} width={1200} />
       </FlexBox>
     </Slide>
+    <CreateSpanSlide />
     <SetupOpenTelemetrySlide />
     <MeasureActionsSlides />
-    <MeasurePageLoadSlides />
+    <MeasurePageDataLoadSlides />
     <MeasurePageLoadNavigationSlides />
-    <Slide>
-      <FlexBox
-        justifyContent="center"
-        alignContent="center"
-        height="100%"
-        flexDirection="column"
-      >
-        <Heading fontSize="h3">The future of Opentelemetry</Heading>
-      </FlexBox>
-    </Slide>
+    <FutureSlides />
     <ThankYouSlide />
     <ReferencesSlide />
   </Deck>

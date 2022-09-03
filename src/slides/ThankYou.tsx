@@ -3,8 +3,10 @@ import { Heading, Slide, Image, FlexBox, Appear } from "spectacle";
 import OpentelemetryHorizontalLogo from "../images/opentelemetry-horizontal-color.png";
 
 export const ThankYouSlide = () => (
-  <Slide>
-    <Heading fontSize="h3">Thank you</Heading>
+  <Slide backgroundColor="rgb(255, 255, 255)">
+    <Heading fontSize="h3" className="text-black">
+      Thank you
+    </Heading>
     <Appear>
       <FlexBox
         justifyContent="center"
@@ -12,7 +14,9 @@ export const ThankYouSlide = () => (
         height="100%"
         flexDirection="column"
       >
-        <Heading fontSize="h3">Contribute to</Heading>
+        <Heading fontSize="h3" className="text-black">
+          Contribute to
+        </Heading>
         <Image src={OpentelemetryHorizontalLogo} width={600} />
       </FlexBox>
     </Appear>
