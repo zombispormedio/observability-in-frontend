@@ -1,5 +1,5 @@
 import React from "react";
-import { CodePane, FlexBox, Heading, Slide } from "spectacle";
+import { CodePane, Heading, Slide } from "spectacle";
 
 export const SetupOpenTelemetrySlide = () => (
   <Slide>

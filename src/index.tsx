@@ -22,7 +22,10 @@ import { ReferencesSlide } from "./slides/References";
 import { SetupOpenTelemetrySlide } from "./slides/SetupOpentelemetry";
 import { WhyObservabilitySlides } from "./slides/WhyObservability";
 import { MeasureActionsSlides } from "./slides/MeasureActions";
-import { MeasurePageDataLoadingSlides } from "./slides/MeasurePageDataLoading";
+import { MeasurePageLoadSlides } from "./slides/MeasurePageLoad";
+import example from "./images/example.png";
+import { CreateSpanSlide } from "./slides/CreateSpan";
+import { MeasurePageLoadNavigationSlides } from "./slides/MeasurePageLoadNavigation";
 
 const theme = {
   colors: {
@@ -94,10 +97,10 @@ const Presentation = () => (
           <Text>Sentry?</Text>
         </Appear>
         <Appear>
-          <Text>Magic scripts?</Text>
+          <Text>Datadog?</Text>
         </Appear>
         <Appear>
-          <Text>Session Replays?</Text>
+          <Text>Record more user sessions?</Text>
         </Appear>
       </FlexBox>
     </Slide>
@@ -163,19 +166,6 @@ const Presentation = () => (
         <Heading fontSize="h3">The challenge: Human Interaction</Heading>
       </FlexBox>
     </Slide>
-    <SetupOpenTelemetrySlide />
-    <Slide className="text-white">
-      <FlexBox
-        justifyContent="center"
-        alignContent="center"
-        height="100%"
-        flexDirection="column"
-      >
-        <Heading fontSize="h3">Create an span</Heading>
-      </FlexBox>
-    </Slide>
-    <MeasureActionsSlides />
-    <MeasurePageDataLoadingSlides />
     <Slide>
       <FlexBox
         justifyContent="center"
@@ -191,6 +181,21 @@ const Presentation = () => (
             React application example
           </a>
         </Heading>
+        <Image src={example} width={1200} />
+      </FlexBox>
+    </Slide>
+    <SetupOpenTelemetrySlide />
+    <MeasureActionsSlides />
+    <MeasurePageLoadSlides />
+    <MeasurePageLoadNavigationSlides />
+    <Slide>
+      <FlexBox
+        justifyContent="center"
+        alignContent="center"
+        height="100%"
+        flexDirection="column"
+      >
+        <Heading fontSize="h3">The future of Opentelemetry</Heading>
       </FlexBox>
     </Slide>
     <ThankYouSlide />

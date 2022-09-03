@@ -1,9 +1,21 @@
 import React from "react";
-import { Heading, Slide, Image, CodePane } from "spectacle";
+import { Heading, Slide, Image, FlexBox, CodePane } from "spectacle";
 import mutation from "../images/mutation.png";
+import mutationExample from "../images/mutation_example.png";
 
 export const MeasureActionsSlides = () => (
   <>
+    <Slide className="text-white">
+      <FlexBox
+        justifyContent="center"
+        alignContent="center"
+        height="100%"
+        flexDirection="column"
+      >
+        <Heading fontSize="h3">Measure actions</Heading>
+        <Image src={mutationExample} width={1200} />
+      </FlexBox>
+    </Slide>
     <Slide className="text-white">
       <Heading fontSize="h3">Measure actions</Heading>
       <Image src={mutation} />
@@ -51,6 +63,7 @@ return  (
         highlightRanges={[
           [1, 12],
           [16, 23],
+          [25, 31],
           [34, 39],
           [40, 43],
           [44, 51],

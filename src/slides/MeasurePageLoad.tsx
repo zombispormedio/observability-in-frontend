@@ -1,9 +1,9 @@
 import React from "react";
 import { Heading, Slide, Image, CodePane, FlexBox } from "spectacle";
 import loadView from "../images/load_view.png";
-import navigation from "../images/navigation.png";
+import loadViewExample from "../images/load_view_example.png";
 
-export const MeasurePageDataLoadingSlides = () => (
+export const MeasurePageLoadSlides = () => (
   <>
     <Slide className="text-white">
       <FlexBox
@@ -12,32 +12,52 @@ export const MeasurePageDataLoadingSlides = () => (
         height="100%"
         flexDirection="column"
       >
-        <Heading fontSize="h3">Measure page data loading</Heading>
+        <Heading fontSize="h3">Measure page load</Heading>
+        <Image src={loadViewExample} width={1200} />
+      </FlexBox>
+    </Slide>
+    <Slide className="text-white">
+      <FlexBox
+        justifyContent="center"
+        alignContent="center"
+        height="100%"
+        flexDirection="column"
+      >
+        <Heading fontSize="h3">Measure page load</Heading>
         <Image src={loadView} width={1224} />
       </FlexBox>
     </Slide>
     <Slide>
-      <Heading fontSize="h3">Measure page data loading</Heading>
-      <CodePane language="jsx">{`  const { data: countData, isLoading: isPlantsCountLoading } = useTracedQuery<{
-    count: number;
-  }>(["plants.count"], getPlantsCount);
+      <Heading fontSize="h3">Measure page load</Heading>
+      <CodePane language="jsx">{`const {
+    data: countData,
+    isLoading: isPlantsCountLoading,
+    isRefetching: isPlantsCountRefetching,
+  } = useTracedQuery(["plants.count"], getPlantsCount);
 
-  const { data, isLoading: isPlantsLoading } = useTracedQuery<{
-    items: { id: string; name: string; imageUrl: string }[];
-  }>(["plants"], getPlants);
+ const {
+    data,
+    isLoading: isPlantsLoading,
+    isRefetching: isPlantsRefetching,
+  } = useTracedQuery(["plants"], getPlants);
 
-  useTracePageDataLoad(isPlantsCountLoading || isPlantsLoading);`}</CodePane>
+useTracePageDataLoad(
+  isPlantsCountLoading || isPlantsLoading,
+  isPlantsCountRefetching || isPlantsRefetching
+);`}</CodePane>
     </Slide>
 
     <Slide>
-      <Heading fontSize="h3">Measure page data loading</Heading>
+      <Heading fontSize="h3">Measure page load</Heading>
       <CodePane
         language="jsx"
         highlightRanges={[
           [1, 10],
-          [10, 18],
+          [9, 20],
           [23, 34],
-          [36, 50],
+          [36, 43],
+          [44, 51],
+          [52, 59],
         ]}
       >{`function useTracedQuery (arg1, arg2, arg3) {
   const tracedPage = useTracedPage();
@@ -99,21 +119,43 @@ export const MeasurePageDataLoadingSlides = () => (
         });
         span.end();
       }
-          return returnResult;
+      return returnResult;
     }
   });
 };
 `}</CodePane>
     </Slide>
     <Slide>
-      <Heading fontSize="h3">Measure page data loading</Heading>
+      <Heading fontSize="h3">Measure page load</Heading>
+      <CodePane language="jsx">{`function useTracePageDataLoad(loading: boolean, refetching?: boolean) {
+  const previousLoading = usePrevious(loading);
+  const previousRefetching = usePrevious(refetching);
+  const tracedPage = useTracedPage();
+
+  useEffect(() => {
+    if (previousLoading && !loading) {
+      tracedPage.endPageSpan();
+    }
+  }, [previousLoading, loading]);
+
+  useEffect(() => {
+    if (previousRefetching && !refetching) {
+      tracedPage.endPageSpan({
+        "data.refetch": true,
+      });
+    }
+  }, [previousRefetching, refetching]);
+};`}</CodePane>
+    </Slide>
+    <Slide>
+      <Heading fontSize="h3">Measure page load</Heading>
       <CodePane
         language="jsx"
         highlightRanges={[
           [1, 18],
-          [20, 22],
-          [24, 35],
-          [37, 50],
+          [22, 33],
+          [35, 43],
+          [48, 54],
         ]}
       >{`const TracedPage = ({
   page,
@@ -123,28 +165,39 @@ export const MeasurePageDataLoadingSlides = () => (
   children: ReactNode;
 }) => {
   const pageSpanRef = useRef<Span | undefined>();
-  const createPageSpan = () =>
-    getTracer().startSpan(
-      \`pageDataLoad:\$\{page\}\`,
+  if (!pageSpanRef.current) {
+     pageSpanRef.current = createPageSpan(
+        \`pageDataLoad:\$\{page\}\`,
       {
-        attributes: {
-          component: "page",
-          page,
-          "location.url": window.location.href,
-        },
+        page,
+        "data.status": "first_loading",
       }
     );
-  if (!pageSpanRef.current) {
-    pageSpanRef.current = createPageSpan();
+    firstLoad.current = true;
   }
 
   const value = useMemo(
     () => ({
-      getPageSpan: () => pageSpanRef.current,
-      endPageSpan: () => {
+      getPageSpan: () => {
+        if (!pageSpanRef.current) {
+          pageSpanRef.current = createPageSpan(
+            \`pageDataLoad:\$\{page\}\`,
+            {
+              page,
+              "data.status": "loading",
+            }
+          );
+        }
+
+        return pageSpanRef.current;
+      },
+      endPageSpan: (attributes?: Attributes) => {
         if (pageSpanRef.current) {
+          if (attributes) {
+            pageSpanRef.current.setAttributes(attributes);
+          }
           pageSpanRef.current.end();
-          pageSpanRef.current = createPageSpan();
+          pageSpanRef.current = undefined;
         }
       },
     }),
@@ -159,17 +212,6 @@ export const MeasurePageDataLoadingSlides = () => (
 };
 
 `}</CodePane>
-    </Slide>
-    <Slide className="text-white">
-      <Heading fontSize="h3">Measure page data loading with navigation</Heading>
-      <FlexBox
-        justifyContent="center"
-        alignContent="center"
-        height="100%"
-        flexDirection="column"
-      >
-        <Image src={navigation} />
-      </FlexBox>
     </Slide>
   </>
 );
