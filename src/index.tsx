@@ -29,6 +29,7 @@ import { CreateSpanSlide } from "./slides/CreateSpan";
 import { MeasurePageLoadNavigationSlides } from "./slides/MeasurePageDataLoadNavigation";
 import { FutureSlides } from "./slides/Future";
 import { OpenTelemetryIntroSlides } from "./slides/OpenTelemetryIntro";
+import { WhatCanWeDoSlides } from "./slides/WhatCanWeDo";
 
 const theme = {
   colors: {
@@ -69,44 +70,7 @@ const Presentation = () => (
     </Slide>
     <ErrorPerformanceSlides />
     <UserPainSlides />
-    <Slide className="text-white">
-      <FlexBox
-        justifyContent="center"
-        alignContent="center"
-        height="100%"
-        flexDirection="column"
-      >
-        <Heading fontSize="h3">What can we do?</Heading>
-        <Appear>
-          <Text>Grafana?</Text>
-        </Appear>
-        <Appear>
-          <Text>Datadog?</Text>
-        </Appear>
-        <Appear>
-          <Text>More dashboards?</Text>
-        </Appear>
-      </FlexBox>
-    </Slide>
-    <Slide className="text-white">
-      <FlexBox
-        justifyContent="center"
-        alignContent="center"
-        height="100%"
-        flexDirection="column"
-      >
-        <Heading fontSize="h3">What can we do in the frontend?</Heading>
-        <Appear>
-          <Text>Sentry?</Text>
-        </Appear>
-        <Appear>
-          <Text>Datadog?</Text>
-        </Appear>
-        <Appear>
-          <Text>More user sessions recordings?</Text>
-        </Appear>
-      </FlexBox>
-    </Slide>
+    <WhatCanWeDoSlides />
     <OpenTelemetryIntroSlides />
     <Slide backgroundColor="rgb(255, 255, 255)">
       <FlexBox
