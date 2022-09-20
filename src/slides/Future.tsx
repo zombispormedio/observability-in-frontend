@@ -4,7 +4,7 @@ import OpentelemetryFuture from "../images/opentelemetry_future.png";
 
 export const FutureSlides = () => (
   <Slide>
-    <Heading fontSize="h3">The future of Opentelemetry</Heading>
+    <Heading fontSize="h3">The future of OpenTelemetry</Heading>
     <FlexBox
       justifyContent="center"
       alignContent="center"
