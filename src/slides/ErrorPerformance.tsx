@@ -38,7 +38,7 @@ export const ErrorPerformanceSlides = () => (
             :)
           </div>
           <div className="md:text-[length:30px] md:leading-[40px] text-white p-0">
-            The website is dying. Try to refresh and cross your fingers 🤞
+            The website is dying. Refresh and cross your fingers 🤞
             <br />
             Possibly your data is not saved. Spooky. Spooky.
           </div>

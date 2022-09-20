@@ -67,7 +67,7 @@ export const WhyObservabilitySlides = () => (
     <Slide className="text-white">
       <FlexBox>
         <FlexBox flexDirection="column">
-          <Text>I want to group by...</Text>
+          <Text className="text-green-500">I want to group by...</Text>
           <UnorderedList>
             <ListItem>
               <Text>Request</Text>
@@ -87,7 +87,7 @@ export const WhyObservabilitySlides = () => (
           </UnorderedList>
         </FlexBox>
         <FlexBox flexDirection="column">
-          <Text>and how is connected with...</Text>
+          <Text className="text-green-500">and how is connected with...</Text>
           <UnorderedList>
             <ListItem>
               <Text>Input</Text>
