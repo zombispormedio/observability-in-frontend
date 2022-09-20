@@ -14,12 +14,12 @@ export const MeasurePageLoadNavigationSlides = () => (
         height="100%"
         flexDirection="column"
       >
-        <Heading fontSize="h3">Measure page data load: Navigation</Heading>
+        <Heading fontSize="h3">Measure page load: Navigation</Heading>
         <Image src={navigationExample} width={1200} />
       </FlexBox>
     </Slide>
     <Slide className="text-white">
-      <Heading fontSize="h3">Measure page data load: Navigation</Heading>
+      <Heading fontSize="h3">Measure page load: Navigation</Heading>
       <FlexBox
         justifyContent="center"
         alignContent="center"
@@ -30,14 +30,14 @@ export const MeasurePageLoadNavigationSlides = () => (
       </FlexBox>
     </Slide>
     <Slide>
-      <Heading fontSize="h3">Measure page data load: Navigation</Heading>
+      <Heading fontSize="h3">Measure page load: Navigation</Heading>
       <CodePane language="jsx">{`<Link 
     to={\`/plants/\${plant.id}\`}
     onClick={() => tracedNavigation.applyNavigationSpan()}
     >`}</CodePane>
     </Slide>
     <Slide>
-      <Heading fontSize="h3">Measure page data load: Navigation</Heading>
+      <Heading fontSize="h3">Measure page load: Navigation</Heading>
       <CodePane
         language="jsx"
         highlightRanges={[
@@ -68,7 +68,7 @@ export const MeasurePageLoadNavigationSlides = () => (
 };`}</CodePane>
     </Slide>
     <Slide>
-      <Heading fontSize="h3">Measure page data load: Navigation</Heading>
+      <Heading fontSize="h3">Measure page load: Navigation</Heading>
       <CodePane
         language="jsx"
         highlightRanges={[[8], [17], [45]]}
@@ -140,12 +140,12 @@ export const MeasurePageLoadNavigationSlides = () => (
         height="100%"
         flexDirection="column"
       >
-        <Heading fontSize="h3">Measure page data load: Pagination</Heading>
+        <Heading fontSize="h3">Measure page load: Pagination</Heading>
         <Image src={paginationExample} width={1200} />
       </FlexBox>
     </Slide>
     <Slide className="text-white">
-      <Heading fontSize="h3">Measure page data load: Pagination</Heading>
+      <Heading fontSize="h3">Measure page load: Pagination</Heading>
       <FlexBox
         justifyContent="center"
         alignContent="center"
@@ -156,7 +156,7 @@ export const MeasurePageLoadNavigationSlides = () => (
       </FlexBox>
     </Slide>
     <Slide>
-      <Heading fontSize="h3">Measure page data load: Pagination</Heading>
+      <Heading fontSize="h3">Measure page load: Pagination</Heading>
       <CodePane language="jsx">
         {`const nextPage = () => {
   tracedNavigation.applyNavigationSpan();
