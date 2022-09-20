@@ -63,67 +63,65 @@ return  (
         highlightRanges={[
           [1, 12],
           [16, 23],
-          [24, 31],
+          [24, 30],
           [33, 38],
           [39, 42],
           [43, 50],
         ]}
-      >{`function useTracedMutation (arg1, arg2, arg3){
-    const { mutationFn, ...restOfMutationArgs } = parseMutationArgs(arg1, arg2, arg3)
+      >{`function useTracedMutation(arg1, arg2, arg3) {
+  const { mutationFn, ...restOfMutationArgs } = parseMutationArgs(arg1, arg2, arg3);
 
-    const { mutate, ...rest } = useMutation({
-        ...restOfMutationArgs,
-        mutationFn: ({ opentelemetry, variables }) => {
-          return context.with(
-            trace.setSpan(context.active(), opentelemetry.currentSpan),
-            () => mutationFn?.(variables)
-          );
-        }
-    });
+  const { mutate, ...rest } = useMutation({
+    ...restOfMutationArgs,
+    mutationFn: ({ opentelemetry, variables }) => {
+      return context.with(
+        trace.setSpan(context.active(), opentelemetry.currentSpan),
+        () => mutationFn?.(variables)
+      );
+    },
+  });
 
-   return {
+  return {
     ...rest,
     mutate: (variables, options) => {
-        const span = getTracer().startSpan("mutate", {
-            kind: SpanKind.CLIENT,
-            attributes: {
-              component: "mutation",
-            },
-        });
+      const span = getTracer().startSpan("mutate", {
+        kind: SpanKind.CLIENT,
+        attributes: {
+          component: "mutation",
+        },
+      });
 
-        return mutate(
-          {
-            variables,
-            opentelemetry: {
-              currentSpan: span,
-            },
+      return mutate(
+        {
+          variables,
+          opentelemetry: {
+            currentSpan: span,
           },
-          {
-            ...options,
-            onSuccess: (data, { variables }, context) => {
-              span.setStatus({
-                code: SpanStatusCode.OK,
-              });
-              return options?.onSuccess?.(data, variables, context);
-            },
-            onSettled: (data, error, { variables }, context) => {
-              span.end();
-              return options?.onSettled?.(data, error, variables, context);
-            },
-            onError: (error, { variables }, context) => {
-              span.setStatus({
-                code: SpanStatusCode.ERROR,
-                message: (error as unknown as Error | undefined)?.message,
-              });
-              span.recordException(error as unknown as Error);
-              return options?.onError?.(error, variables, context);
-            },
-          }
-        );
-      },
-      [mutate]
-    )
-  } 
+        },
+        {
+          ...options,
+          onSuccess: (data, { variables }, context) => {
+            span.setStatus({
+              code: SpanStatusCode.OK,
+            });
+            return options?.onSuccess?.(data, variables, context);
+          },
+          onSettled: (data, error, { variables }, context) => {
+            span.end();
+            return options?.onSettled?.(data, error, variables, context);
+          },
+          onError: (error, { variables }, context) => {
+            span.setStatus({
+              code: SpanStatusCode.ERROR,
+              message: (error as unknown as Error | undefined)?.message,
+            });
+            span.recordException(error as unknown as Error);
+            return options?.onError?.(error, variables, context);
+          },
+        }
+      );
+    },
+  };
 }
 `}</CodePane>
     </Slide>

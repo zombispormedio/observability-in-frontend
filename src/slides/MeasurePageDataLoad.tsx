@@ -53,7 +53,7 @@ useTracePageDataLoad(
         language="jsx"
         highlightRanges={[
           [1, 10],
-          [8, 20],
+          [10, 21],
           [23, 34],
           [36, 43],
           [44, 51],

@@ -33,7 +33,7 @@ export const MeasurePageLoadNavigationSlides = () => (
       <Heading fontSize="h3">Measure page data load: Navigation</Heading>
       <CodePane language="jsx">{`<Link 
     to={\`/plants/\${plant.id}\`}
-    onClick={() => tracedNavigation.setNavigationSpan()}
+    onClick={() => tracedNavigation.applyNavigationSpan()}
     >`}</CodePane>
     </Slide>
     <Slide>
@@ -46,15 +46,15 @@ export const MeasurePageLoadNavigationSlides = () => (
           [16, 19],
         ]}
       >{`const TracedNavigation = ({ children }: { children: ReactNode }) => {
-  const [navigationSpan, setNavigationSpan] = useState<Span | undefined>();
+  const [navigationSpan, applyNavigationSpan] = useState<Span | undefined>();
   const value = useMemo(
     () => ({
       currentSpan: navigationSpan,
-      setNavigationSpan: () => {
-        setNavigationSpan(trace.getSpan(context.active()));
+      applyNavigationSpan: () => {
+        applyNavigationSpan(trace.getSpan(context.active()));
       },
       resetNavigationSpan: () => {
-        setNavigationSpan(undefined);
+        applyNavigationSpan(undefined);
       },
     }),
     [navigationSpan]
@@ -159,12 +159,12 @@ export const MeasurePageLoadNavigationSlides = () => (
       <Heading fontSize="h3">Measure page data load: Pagination</Heading>
       <CodePane language="jsx">
         {`const nextPage = () => {
-  tracedNavigation.setNavigationSpan();
+  tracedNavigation.applyNavigationSpan();
   (...)
 };
 
 const previousPage = () => {
-  tracedNavigation.setNavigationSpan();
+  tracedNavigation.applyNavigationSpan();
   (...)
 };
 
