@@ -63,7 +63,7 @@ const Presentation = () => (
         </div>
         <div className="text-white flex items-center flex-col pl-24">
           <Text>Xavier Serrano</Text>
-          <Text>Software Enginner 🌍</Text>
+          <Text>Software Engineer 🌍</Text>
           <Image src={trazableLogo} width={300} className="mt-10" />
         </div>
       </FlexBox>
