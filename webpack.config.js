@@ -53,7 +53,7 @@ if (process.env.NODE_ENV === "production") {
       clientsClaim: true,
       skipWaiting: true,
       maximumFileSizeToCacheInBytes: 5000000,
-      navigationFallback: "index.html",
+      navigateFallback: "index.html",
     })
   );
 }
