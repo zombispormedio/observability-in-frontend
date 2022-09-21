@@ -8,7 +8,7 @@ const WorkboxPlugin = require("workbox-webpack-plugin");
  * Base configuration for the CLI, core, and examples.
  */
 
-module.exports = {
+const webpackConfig = {
   mode: "development",
   entry: "./src/index.tsx", // Default for boilerplate generation.
   output: {
@@ -42,13 +42,20 @@ module.exports = {
       title: "Observability in frontend: React ❤️ OpenTelemetry",
       template: "./src/index.html",
     }),
+  ],
+};
 
+if (process.env.NODE_ENV === "production") {
+  webpackConfig.plugins.push(
     new WorkboxPlugin.GenerateSW({
       // these options encourage the ServiceWorkers to get in there fast
       // and not allow any straggling "old" SWs to hang around
       clientsClaim: true,
       skipWaiting: true,
       maximumFileSizeToCacheInBytes: 5000000,
-    }),
-  ],
-};
+      navigationFallback: "index.html",
+    })
+  );
+}
+
+module.exports = webpackConfig;
