@@ -35,8 +35,8 @@ export const OpenTelemetryIntroSlides = () => (
         className="z-10"
       >
         <Heading fontSize="h3">
-          OpenTelemetry is a collection of APIs and SDKs to allow the software
-          to emit telemetry data
+          OpenTelemetry is a vendor-agnostic collection of APIs and SDKs to
+          allow the software to emit telemetry data
         </Heading>
       </FlexBox>
     </Slide>
