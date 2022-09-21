@@ -11,7 +11,7 @@ export const FutureSlides = () => (
       height="100%"
       flexDirection="column"
     >
-      <Image src={OpentelemetryFuture} width={900} />
+      <Image src={OpentelemetryFuture} width={1200} />
       <a
         href="https://github.com/cncf/velocity"
         target="_blank"
