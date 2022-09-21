@@ -64,7 +64,9 @@ const Presentation = () => (
         <div className="text-white flex items-center flex-col pl-24">
           <Text>Xavier Serrano</Text>
           <Text>Software Engineer 🌍</Text>
-          <Image src={trazableLogo} width={300} className="mt-10" />
+          <div className="bg-white mt-10 p-5">
+            <Image src={trazableLogo} width={300} />
+          </div>
         </div>
       </FlexBox>
     </Slide>
