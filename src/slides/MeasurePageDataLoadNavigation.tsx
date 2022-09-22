@@ -46,15 +46,15 @@ export const MeasurePageLoadNavigationSlides = () => (
           [16, 19],
         ]}
       >{`const TracedNavigation = ({ children }: { children: ReactNode }) => {
-  const [navigationSpan, applyNavigationSpan] = useState<Span | undefined>();
+  const [navigationSpan, setNavigationSpan] = useState<Span | undefined>();
   const value = useMemo(
     () => ({
       currentSpan: navigationSpan,
       applyNavigationSpan: () => {
-        applyNavigationSpan(trace.getSpan(context.active()));
+        setNavigationSpan(trace.getSpan(context.active()));
       },
       resetNavigationSpan: () => {
-        applyNavigationSpan(undefined);
+        setNavigationSpan(undefined);
       },
     }),
     [navigationSpan]
