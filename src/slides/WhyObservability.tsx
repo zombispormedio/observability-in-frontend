@@ -23,7 +23,7 @@ export const WhyObservabilitySlides = () => (
         flexDirection="column"
       >
         <Heading fontSize="h3">
-          Why we need observability in the frontend?
+          Why do we need observability in the frontend?
         </Heading>
       </FlexBox>
     </Slide>
@@ -35,7 +35,7 @@ export const WhyObservabilitySlides = () => (
         flexDirection="column"
       >
         <Heading fontSize="h3">
-          Why we need observability in every built software in our company?
+          Why do we need observability in every built software in our company?
         </Heading>
       </FlexBox>
     </Slide>
