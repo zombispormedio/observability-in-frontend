@@ -11,7 +11,6 @@ import {
 import errorsChart from "../images/errors-chart.png";
 import errorTrace from "../images/error-trace.png";
 
-
 import { noTransition } from "../utils";
 
 export const WhyObservabilitySlides = () => (
@@ -36,7 +35,7 @@ export const WhyObservabilitySlides = () => (
         flexDirection="column"
       >
         <Heading fontSize="h3">
-          Why we need observability in every built software in your company?
+          Why we need observability in every built software in our company?
         </Heading>
       </FlexBox>
     </Slide>
@@ -104,6 +103,5 @@ export const WhyObservabilitySlides = () => (
         </FlexBox>
       </FlexBox>
     </Slide>
-   
   </>
 );
