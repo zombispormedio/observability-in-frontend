@@ -1,5 +1,5 @@
 import React from "react";
-import { Heading, Slide, Image, CodePane, FlexBox, Box } from "spectacle";
+import { Heading, Slide, Image, CodePane, FlexBox, Notes } from "spectacle";
 import loadView from "../images/load_view.png";
 import loadViewExample from "../images/load_view_example.png";
 
@@ -15,6 +15,9 @@ export const MeasurePageDataLoadSlides = () => (
         <Heading fontSize="h3">Measure page load</Heading>
         <Image src={loadViewExample} width={1200} />
       </FlexBox>
+      <Notes>
+        And the most common interaction in any user-facing app is loading pages.
+      </Notes>
     </Slide>
     <Slide className="text-white">
       <FlexBox
@@ -26,6 +29,12 @@ export const MeasurePageDataLoadSlides = () => (
         <Heading fontSize="h3">Measure page load</Heading>
         <Image src={loadView} width={1224} />
       </FlexBox>
+      <Notes>
+        In this trace, I like to group all the data loading that page does.
+        Getting the list of plants and the count of plants. Possibly, it's
+        missing the span related to the render, but we can think about it in
+        another iteration.
+      </Notes>
     </Slide>
     <Slide>
       <Heading fontSize="h3">Measure page load</Heading>
@@ -45,6 +54,13 @@ useTracePageDataLoad(
   isPlantsCountLoading || isPlantsLoading,
   isPlantsCountRefetching || isPlantsRefetching
 );`}</CodePane>
+      <Notes>
+        We work normally like mutations, but yes, we go back with the wrappers,
+        but we need something to know when the whole data loading is finishing,
+        then the parent span. I called the hook “useTracePageDataLoad”, and
+        depends on the loading state and the refetching state. Yes, I want
+        another trace when the data is reloaded at some moment.
+      </Notes>
     </Slide>
 
     <Slide>
@@ -124,6 +140,15 @@ useTracePageDataLoad(
   });
 };
 `}</CodePane>
+      <Notes>
+        The wrapper for the user query is quite similar to the useMutation one,
+        but, we make all the job in the query function. If you see we have
+        another hook called “`useTracedPage`” to get the current page span, so,
+        the parent span. We create the span, and we need to manage and propagate
+        the context, in the query function possibly we do a fetch, and we need
+        to propagate the parent. This is an implementation plus, we need to know
+        when to finish the span, and if it's a promise or a normal function.
+      </Notes>
     </Slide>
     <Slide>
       <Heading fontSize="h3">Measure page load</Heading>
@@ -146,6 +171,10 @@ useTracePageDataLoad(
     }
   }, [previousRefetching, refetching]);
 };`}</CodePane>
+      <Notes>
+        This is the implementation of the “useTracePageDataLoad”, it's a way to
+        know when finishing the page span.
+      </Notes>
     </Slide>
     <Slide>
       <Heading fontSize="h3">Measure page load</Heading>
@@ -213,6 +242,14 @@ useTracePageDataLoad(
 };
 
 `}</CodePane>
+      <Notes>
+        And this is the provider of the page span, we create a span at the
+        beginning, storing it in a ref. And we have the value context, with two
+        functions, getPageSpan, that returns the current one or creates another
+        one if it's not created, this is important for refetching. Because when
+        we end the span, we remove the page span, and in the next loading the
+        page span is created. And we use React context for this.
+      </Notes>
     </Slide>
   </>
 );

@@ -1,5 +1,5 @@
 import React from "react";
-import { CodePane, Heading, Slide } from "spectacle";
+import { CodePane, Heading, Slide, Notes } from "spectacle";
 
 export const CreateSpanSlide = () => (
   <Slide>
@@ -35,5 +35,15 @@ try {
   span.end();
 }
 `}</CodePane>
+    <Notes>
+      In the front end, traces fit perfectly. The basic unit of the trace is a
+      span. A piece of work is like a request, a called function, and
+      interaction. A span starts and ends. Attributes are the most important
+      part because they are the things that tell you what is happening in the
+      software. User id, the request path, the clicked element. Then
+      OpenTelemetry gives us a way, called context, to propagate the parent
+      spans to the child spans. We can set the status and add errors to the
+      span. This is the basic implementation.
+    </Notes>
   </Slide>
 );

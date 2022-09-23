@@ -1,5 +1,5 @@
 import React from "react";
-import { Heading, Slide, Image, CodePane, FlexBox } from "spectacle";
+import { Heading, Slide, Image, CodePane, FlexBox, Notes } from "spectacle";
 import navigation from "../images/navigation.png";
 import pagination from "../images/pagination.png";
 import navigationExample from "../images/navigation_example.png";
@@ -17,6 +17,7 @@ export const MeasurePageLoadNavigationSlides = () => (
         <Heading fontSize="h3">Bonus track: Navigation</Heading>
         <Image src={navigationExample} width={1200} />
       </FlexBox>
+      <Notes>And we can iterate this to take into account navigation.</Notes>
     </Slide>
     <Slide className="text-white">
       <Heading fontSize="h3">Bonus track: Navigation</Heading>
@@ -28,6 +29,11 @@ export const MeasurePageLoadNavigationSlides = () => (
       >
         <Image src={navigation} />
       </FlexBox>
+      <Notes>
+        We can click on a link and propagate the parent span to the loading
+        view. The click and navigation spans are created by the User interaction
+        instrumentation.
+      </Notes>
     </Slide>
     <Slide>
       <Heading fontSize="h3">Bonus track: Navigation</Heading>
@@ -35,6 +41,11 @@ export const MeasurePageLoadNavigationSlides = () => (
     to={\`/plants/\${plant.id}\`}
     onClick={() => tracedNavigation.applyNavigationSpan()}
     >`}</CodePane>
+      <Notes>
+        We need to use another react context to store the parent span in an
+        upper level. And when we click on a link, we extract and save the
+        navigation span.
+      </Notes>
     </Slide>
     <Slide>
       <Heading fontSize="h3">Bonus track: Navigation</Heading>
@@ -66,6 +77,10 @@ export const MeasurePageLoadNavigationSlides = () => (
     </TracedNavigationContext.Provider>
   );
 };`}</CodePane>
+      <Notes>
+        Here it’s the implementation. In this case, we use a useState to store
+        the navigation span, and we need to set it and reset it.
+      </Notes>
     </Slide>
     <Slide>
       <Heading fontSize="h3">Bonus track: Navigation</Heading>
@@ -131,6 +146,11 @@ export const MeasurePageLoadNavigationSlides = () => (
 };
 
 `}</CodePane>
+      <Notes>
+        In the TracedPage component, we make use of the navigation context and
+        we get the parent span, and when the page is loaded, we reset the
+        navigation.
+      </Notes>
     </Slide>
 
     <Slide className="text-white">
@@ -143,6 +163,10 @@ export const MeasurePageLoadNavigationSlides = () => (
         <Heading fontSize="h3">Bonus track: Pagination</Heading>
         <Image src={paginationExample} width={1200} />
       </FlexBox>
+      <Notes>
+        We can do almost the same for pagination, but we need to set the
+        navigation span when we click the buttons.
+      </Notes>
     </Slide>
     <Slide className="text-white">
       <Heading fontSize="h3">Bonus track: Pagination</Heading>
@@ -154,6 +178,10 @@ export const MeasurePageLoadNavigationSlides = () => (
       >
         <Image src={pagination} />
       </FlexBox>
+      <Notes>
+        We can do almost the same for pagination, but we need to set the
+        navigation span when we click the buttons.
+      </Notes>
     </Slide>
     <Slide>
       <Heading fontSize="h3">Bonus track: Pagination</Heading>
@@ -176,6 +204,10 @@ return (
 )
 `}
       </CodePane>
+      <Notes>
+        We can do almost the same for pagination, but we need to set the
+        navigation span when we click the buttons.
+      </Notes>
     </Slide>
   </>
 );

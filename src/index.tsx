@@ -9,12 +9,13 @@ import {
   Image,
   Box,
   Text,
-  Appear,
+  Notes,
 } from "spectacle";
 import "./index.css";
 import avatar from "./images/avatar.jpg";
 import trazableLogo from "./images/logo_trazable.png";
 import observabilityImage from "./images/observability.jpg";
+import ReactAlicanteCover from "./images/first-slides-2022.010-xavier.jpg";
 import ErrorReportingSessionReplaysDashboards from "./images/error_reporting_session_replays_dashboards.png";
 import { ErrorPerformanceSlides } from "./slides/ErrorPerformance";
 import { UserPainSlides } from "./slides/UserPain";
@@ -40,16 +41,21 @@ const theme = {
 
 const Presentation = () => (
   <Deck theme={theme}>
-    <Slide>
-      <FlexBox height="100%" flexDirection="column">
-        <Heading margin="0px">
-          <span className="text-green-500">Observability</span> in frontend:
-        </Heading>
+    <Slide className="full-slide">
+      {window.location.search.includes("react-alicante") ? (
+        <Image src={ReactAlicanteCover} width="100%" />
+      ) : (
+        <FlexBox height="100%" flexDirection="column">
+          <Heading margin="0px">
+            <span className="text-green-500">Observability</span> in frontend:
+          </Heading>
 
-        <Heading margin="0px 32px" fontSize="h3">
-          React ❤️ OpenTelemetry
-        </Heading>
-      </FlexBox>
+          <Heading margin="0px 32px" fontSize="h3">
+            React ❤️ OpenTelemetry
+          </Heading>
+        </FlexBox>
+      )}
+
       <div className="absolute bottom-0 left-0 mb-5 ml-5">
         <Box padding="0 1em">
           <FullScreen />
@@ -69,6 +75,12 @@ const Presentation = () => (
           </div>
         </div>
       </FlexBox>
+      <Notes>
+        I am Xavier Serrano. Software engineer, frontend, backend, SRE,
+        whatever. Passionate about observability and 5 years in love with React.
+        I work in Trazable, a startup from Valencia. We make traces and help
+        QAs, but, for food companies.
+      </Notes>
     </Slide>
     <ErrorPerformanceSlides />
     <UserPainSlides />
@@ -83,6 +95,10 @@ const Presentation = () => (
       >
         <Image src={ErrorReportingSessionReplaysDashboards} width={600} />
       </FlexBox>
+      <Notes>
+        Do you remember? Almost the same. It's okay to have it, but it's not
+        enough if you don’t use it wisely.
+      </Notes>
     </Slide>
 
     <Slide className="text-white" backgroundColor="rgb(255, 255, 255)">
@@ -99,6 +115,7 @@ const Presentation = () => (
         </Text>
         <Image src={observabilityImage} width={450} />
       </FlexBox>
+      <Notes>I think it's important to know why we do this.</Notes>
     </Slide>
     <WhyObservabilitySlides />
     <Slide>
@@ -111,6 +128,9 @@ const Presentation = () => (
         <Heading fontSize="h3">Instrument clients</Heading>
         <Heading fontSize="h3">The challenge: Human Interaction</Heading>
       </FlexBox>
+      <Notes>
+        And here we go to how to instrument clients using OpenTelemetry.
+      </Notes>
     </Slide>
     <Slide>
       <FlexBox
@@ -129,6 +149,11 @@ const Presentation = () => (
           </a>
         </Heading>
       </FlexBox>
+      <Notes>
+        For this explanation, I created an example with a backend and a frontend
+        using React Query, React Router and Formik to make it more like a real
+        application.
+      </Notes>
     </Slide>
     <CreateSpanSlide />
     <SetupOpenTelemetrySlide />

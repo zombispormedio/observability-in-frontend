@@ -1,5 +1,5 @@
 import React from "react";
-import { CodePane, Heading, Slide } from "spectacle";
+import { CodePane, Heading, Slide, Notes } from "spectacle";
 
 export const SetupOpenTelemetrySlide = () => (
   <Slide>
@@ -56,5 +56,13 @@ registerInstrumentations({
   ],
 });
         `}</CodePane>
+    <Notes>
+      But you need to set up Open Telemetry, in this case for the browser. We
+      instance a provider that manages, processes and sends the spans. Also, we
+      can generate spans automatically, currently, we can generate spans by the
+      user interactions like clicks, and all the requests. You don't need to
+      instrument this part, but if you want to connect it with your code, you
+      need to create spans.
+    </Notes>
   </Slide>
 );

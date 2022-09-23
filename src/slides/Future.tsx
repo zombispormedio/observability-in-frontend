@@ -1,5 +1,5 @@
 import React from "react";
-import { FlexBox, Slide, Image, Heading, Text } from "spectacle";
+import { FlexBox, Slide, Image, Heading, Notes } from "spectacle";
 import OpentelemetryFuture from "../images/opentelemetry_future.png";
 
 export const FutureSlides = () => (
@@ -20,5 +20,13 @@ export const FutureSlides = () => (
         https://github.com/cncf/velocity
       </a>
     </FlexBox>
+    <Notes>
+      The future of OpenTelemetry is bright. It’s the second largest contributor
+      community in CNCF. The chart shows the development velocity rate with the
+      number of contributors. It’s the second one after Kubernetes. Impressive.
+      But make sense, SDK by language. It is the moment to pay attention and
+      explore the paths OpenTelemetry can take us in the browser and the client
+      applications. And give our vision.
+    </Notes>
   </Slide>
 );

@@ -1,5 +1,5 @@
 import React from "react";
-import { Heading, Slide, Image, FlexBox, CodePane } from "spectacle";
+import { Heading, Slide, Image, FlexBox, CodePane, Notes } from "spectacle";
 import mutation from "../images/mutation.png";
 import mutationExample from "../images/mutation_example.png";
 
@@ -15,10 +15,18 @@ export const MeasureActionsSlides = () => (
         <Heading fontSize="h3">Measure actions</Heading>
         <Image src={mutationExample} width={1200} />
       </FlexBox>
+      <Notes>
+        What can we instrument in client applications? First, we can measure
+        actions: form submissions, button clicks…
+      </Notes>
     </Slide>
     <Slide className="text-white">
       <Heading fontSize="h3">Measure actions</Heading>
       <Image src={mutation} />
+      <Notes>
+        This is a simple result of instrumenting an action. See how it's
+        connected with the backend.
+      </Notes>
     </Slide>
     <Slide>
       <Heading fontSize="h3">Measure actions</Heading>
@@ -54,6 +62,12 @@ return  (
       </button>
     </div>
 );`}</CodePane>
+      <Notes>
+        I use react query, then we talk about mutations and queries. As we see,
+        we have a normal code, you have your mutation, your hook to manage a
+        form and your submit button. But, I needed to make a wrapper over the
+        useMutation.
+      </Notes>
     </Slide>
 
     <Slide>
@@ -124,6 +138,14 @@ return  (
   };
 }
 `}</CodePane>
+      <Notes>
+        This is the implementation. Maybe by having the library instrumented
+        with Open Telemetry or via a plugin, we could have a better
+        implementation. But now we live with a wrapper. We need to pass the
+        current span to the mutation function because the context is lost in the
+        library. We make a wrapper over the mutate function, we start the span,
+        and we handle the span lifecycle in the callbacks.
+      </Notes>
     </Slide>
   </>
 );

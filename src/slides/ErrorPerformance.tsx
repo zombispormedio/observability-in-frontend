@@ -1,5 +1,5 @@
 import React from "react";
-import { FlexBox, Slide, Image, Text } from "spectacle";
+import { FlexBox, Slide, Image, Text, Notes } from "spectacle";
 import busted from "../images/busted.jpg";
 import qrCode from "../images/qr-code.png";
 import { noTransition } from "../utils";
@@ -11,21 +11,35 @@ export const ErrorPerformanceSlides = () => (
       backgroundColor="rgb(255, 255, 255)"
     >
       <Text>TypeError: Cannot read property 'name' of undefined</Text>
+      <Notes>
+        Here we go. Wow. What. Sorry, it shouldn't be this way. This happens
+        when you code your own slides. Sorry. Let me check the next slide.
+      </Notes>
     </Slide>
     <Slide
       className="full-slide text-4xl p-10 font-light"
       backgroundColor="rgb(255, 255, 255)"
     >
       <Text>TypeError: undefined is not a function</Text>
+      <Notes>
+        What! No. This is wrong. This should be a slide with dynamic data, with
+        charts, you know. Showing why observability is so important. Let me see
+        if we can save the next slide.
+      </Notes>
     </Slide>
     <Slide
       className="full-slide text-4xl p-10 font-light"
       backgroundColor="rgb(255, 255, 255)"
     >
       <Text>RangeError: Maximum call stack size exceeded</Text>
+      <Notes>
+        Noooo!! This error is worse. This happens when you do a last-minute
+        deployment. Off. I'm gonna try something.
+      </Notes>
     </Slide>
     <Slide className="full-slide" transition={noTransition}>
       <Image src={busted} width="100%" />
+      <Notes>What!!! What is wrong with my computer? Okay, okay, maybe.</Notes>
     </Slide>
     <Slide
       backgroundColor="rgb(57, 146, 255)"
@@ -61,6 +75,11 @@ export const ErrorPerformanceSlides = () => (
           </FlexBox>
         </FlexBox>
       </FlexBox>
+      <Notes>
+        This is an example of an embarrassing moment that our users can suffer.
+        In their daily work, in their homes, in an important presentation
+        talking about observability.
+      </Notes>
     </Slide>
   </>
 );

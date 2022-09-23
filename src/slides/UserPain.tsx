@@ -1,5 +1,5 @@
 import React from "react";
-import { FlexBox, Slide, Image, Heading } from "spectacle";
+import { FlexBox, Slide, Image, Notes } from "spectacle";
 import firstWorldProblemsForCrashes from "../images/first_world_problems1.png";
 import firstWorldProblemsForSlowdown from "../images/first_world_problems2.png";
 import { noTransition } from "../utils";
@@ -10,11 +10,19 @@ export const UserPainSlides = () => (
       <FlexBox justifyContent="center" alignContent="center" height="100%">
         <Image src={firstWorldProblemsForCrashes} width={700} />
       </FlexBox>
+      <Notes>
+        They were only doing their job. But the application was not working. Or
+        totally time-consuming.
+      </Notes>
     </Slide>
     <Slide backgroundColor="rgb(255, 255, 255)" transition={noTransition}>
       <FlexBox justifyContent="center" alignContent="center" height="100%">
         <Image src={firstWorldProblemsForSlowdown} width={700} />
       </FlexBox>
+      <Notes>
+        They were only doing their job. But the application was not working. Or
+        totally time-consuming.
+      </Notes>
     </Slide>
   </>
 );

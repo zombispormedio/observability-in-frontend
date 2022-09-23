@@ -1,5 +1,5 @@
 import React from "react";
-import { Heading, Slide, Image, FlexBox, Appear } from "spectacle";
+import { Heading, Slide, Image, FlexBox, Appear, Notes } from "spectacle";
 import OpentelemetryHorizontalLogo from "../images/opentelemetry-horizontal-color.png";
 
 export const ThankYouSlide = () => (
@@ -20,5 +20,9 @@ export const ThankYouSlide = () => (
         <Image src={OpentelemetryHorizontalLogo} width={600} />
       </FlexBox>
     </Appear>
+    <Notes>
+      Thank you very much for your attention. Don't forget to contribute to
+      OpenTelemetry, at least take a look at it, the thing is growing.
+    </Notes>
   </Slide>
 );

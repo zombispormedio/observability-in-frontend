@@ -7,37 +7,42 @@ import {
   UnorderedList,
   ListItem,
   Text,
+  Notes,
 } from "spectacle";
 import errorsChart from "../images/errors-chart.png";
 import errorTrace from "../images/error-trace.png";
 
-import { noTransition } from "../utils";
-
 export const WhyObservabilitySlides = () => (
   <>
     <Slide className="text-white">
+      <Heading fontSize="h3">Why do we need observability?</Heading>
       <FlexBox
         justifyContent="center"
         alignContent="center"
         height="100%"
         flexDirection="column"
       >
-        <Heading fontSize="h3">
-          Why do we need observability in the frontend?
-        </Heading>
+        <div className="border-4 border-green-500">
+          <UnorderedList>
+            <ListItem>
+              <Text>Understand the software</Text>
+            </ListItem>
+            <ListItem>
+              <Text>Understand the users and the impact</Text>
+            </ListItem>
+            <ListItem>
+              <Text>Understand the problem and the root cause</Text>
+            </ListItem>
+          </UnorderedList>
+        </div>
       </FlexBox>
-    </Slide>
-    <Slide className="text-white" transition={noTransition}>
-      <FlexBox
-        justifyContent="center"
-        alignContent="center"
-        height="100%"
-        flexDirection="column"
-      >
-        <Heading fontSize="h3">
-          Why do we need observability in every built software in our company?
-        </Heading>
-      </FlexBox>
+      <Notes>
+        Why do we need observability in the front? Why do we need observability
+        in every built software in your company? To understand the whole problem
+        or feelings, in a macro and a micro view, like a telescope understanding
+        the risks, understanding the users, the impact and ultimately/finally
+        understanding the software and the root cause.
+      </Notes>
     </Slide>
     <Slide>
       <FlexBox
@@ -60,48 +65,54 @@ export const WhyObservabilitySlides = () => (
       </FlexBox>
     </Slide>
     <Slide className="text-white">
-      <FlexBox>
+      <FlexBox justityContent="center">
         <FlexBox flexDirection="column">
-          <Text className="text-green-500">I want to group by...</Text>
-          <UnorderedList>
-            <ListItem>
-              <Text>Request</Text>
-            </ListItem>
-            <ListItem>
-              <Text>Error</Text>
-            </ListItem>
-            <ListItem>
-              <Text>Interaction</Text>
-            </ListItem>
-            <ListItem>
-              <Text>User</Text>
-            </ListItem>
-            <ListItem>
-              <Text>...</Text>
-            </ListItem>
-          </UnorderedList>
+          <Text className="self-start ml-0 pl-0">I want to group by...</Text>
+          <div className="border-4 border-green-500 self-start">
+            <UnorderedList>
+              <ListItem>
+                <Text>Requests</Text>
+              </ListItem>
+              <ListItem>
+                <Text>Errors</Text>
+              </ListItem>
+              <ListItem>
+                <Text>Interactions</Text>
+              </ListItem>
+              <ListItem>
+                <Text>Users</Text>
+              </ListItem>
+            </UnorderedList>
+          </div>
         </FlexBox>
         <FlexBox flexDirection="column">
-          <Text className="text-green-500">and how is connected with...</Text>
-          <UnorderedList>
-            <ListItem>
-              <Text>Input</Text>
-            </ListItem>
-            <ListItem>
-              <Text>User</Text>
-            </ListItem>
-            <ListItem>
-              <Text>Other operations</Text>
-            </ListItem>
-            <ListItem>
-              <Text>Application & Business context</Text>
-            </ListItem>
-            <ListItem>
-              <Text>...</Text>
-            </ListItem>
-          </UnorderedList>
+          <Text className="self-start ml-0 pl-0">
+            and how are connected to...
+          </Text>
+          <div className="border-4 border-green-500">
+            <UnorderedList>
+              <ListItem>
+                <Text>Users</Text>
+              </ListItem>
+              <ListItem>
+                <Text>Inputs & Outputs</Text>
+              </ListItem>
+              <ListItem>
+                <Text>Operations</Text>
+              </ListItem>
+              <ListItem>
+                <Text>Application & Business</Text>
+              </ListItem>
+            </UnorderedList>
+          </div>
         </FlexBox>
       </FlexBox>
+      <Notes>
+        And in a practical way, I want to group by request, errors,
+        interactions, users and what I think is important, and see how it's
+        connected with everything around, the context of the user, the input,
+        other operations, the business context, the browser version?
+      </Notes>
     </Slide>
   </>
 );

@@ -1,5 +1,5 @@
 import React from "react";
-import { FlexBox, Slide, Image, Heading } from "spectacle";
+import { FlexBox, Slide, Image, Heading, Notes } from "spectacle";
 import openTelemetryLogo from "../images/opentelemetry-horizontal-color.png";
 import warhorse from "../images/warhorse.jpg";
 import logsMetricsAndLogs from "../images/logs_metrics_logs.png";
@@ -31,6 +31,15 @@ export const OpenTelemetryIntroSlides = () => (
         <Image src={warhorse} width={300} />
         <Image src={logsMetricsAndLogs} width={400} />
       </FlexBox>
+      <Notes>
+        Then we arrive at OpenTelemetry, the next observability standard in the
+        industry. It’s our war horse for understanding why our users are living
+        bad experiences. Incubated by the CNCF (Cloud Native Computing
+        Foundation). It has support for most languages and platforms. It has a
+        good specifications. It makes use of the three pillars of observability
+        (logs, metrics, traces) Logs, metrics, and traces for the front end,
+        what? Maybe logs and metrics are overkill for the front end, but traces.
+      </Notes>
     </Slide>
     <Slide>
       <FlexBox
@@ -45,6 +54,15 @@ export const OpenTelemetryIntroSlides = () => (
           tools, APIs and SDKs to allow the software to emit telemetry data
         </Heading>
       </FlexBox>
+      <Notes>
+        But, it’s only a collection of tools, APIs and SDKs to allow the
+        software to emit telemetry data. And it’s vendor agnostic, this is
+        important, you instrument your code with OpenTelemetry, and you don’t
+        depend on a vendor. Neither sentry nor datadog is in your code. And you
+        can send telemetry data wherever observability platform, to visualize,
+        analyze, and take advantage totally of all the telemetry data. And
+        choose it wisely.
+      </Notes>
     </Slide>
     <Slide className="text-white">
       <FlexBox
@@ -75,6 +93,11 @@ export const OpenTelemetryIntroSlides = () => (
           </div>
         </div>
       </FlexBox>
+      <Notes>
+        In this presentation, I used honeycomb in my examples. They don't pay
+        me. I am only addicted. But is it enough? OpenTelemetry is in the title
+        of my talk. The latest trendy definitive tool.
+      </Notes>
     </Slide>
   </>
 );
