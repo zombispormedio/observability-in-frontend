@@ -3,9 +3,9 @@ import { FlexBox, Slide, Image, Heading } from "spectacle";
 import openTelemetryLogo from "../images/opentelemetry-horizontal-color.png";
 import warhorse from "../images/warhorse.jpg";
 import logsMetricsAndLogs from "../images/logs_metrics_logs.png";
-import GrafanaLogo from "../images/grafana.png";
+import GrafanaLogo from "../images/grafana.svg";
 import DatadogLogo from "../images/datadog.png";
-import HoneycombLogo from "../images/honeycomb.png";
+import HoneycombLogo from "../images/honeycomb.svg";
 import JaegerLogo from "../images/jaeger-logo.png";
 import LightstepLogo from "../images/lightstep.png";
 
@@ -55,20 +55,24 @@ export const OpenTelemetryIntroSlides = () => (
       >
         <Heading fontSize="h3">Don't forget!</Heading>
         <Heading fontSize="h3">Find your observability platform</Heading>
-        <div className="grid grid-cols-5 gap-5 mt-10">
-          <div className="flex items-center justify-center">
-            <Image src={GrafanaLogo} width={150} />
+        <div className="grid grid-cols-5 gap-10 mt-10">
+          <div className="flex justify-center">
+            <Image src={GrafanaLogo} />
           </div>
-          <div className="flex items-center justify-center">
-            <Image src={DatadogLogo} width={200} />
+
+          <div className="flex justify-center">
+            <Image src={JaegerLogo} className="object-contain" />
           </div>
-          <div>
-            <div className="bg-white">
-              <Image src={JaegerLogo} width={300} />
-            </div>
+
+          <div className="flex justify-center">
+            <Image src={HoneycombLogo} width={300} />
           </div>
-          <Image src={HoneycombLogo} width={300} />
-          <Image src={LightstepLogo} width={300} />
+          <div className="flex justify-center">
+            <Image src={LightstepLogo} width={300} />
+          </div>
+          <div className="flex justify-center">
+            <Image src={DatadogLogo} width={300} className="object-contain" />
+          </div>
         </div>
       </FlexBox>
     </Slide>
