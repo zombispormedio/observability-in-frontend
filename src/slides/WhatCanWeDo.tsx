@@ -14,25 +14,25 @@ export const WhatCanWeDoSlides = () => {
   return (
     <Slide className="text-white">
       <Heading fontSize="h3">What could we do?</Heading>
-      <div className="flex justify-center">
-        <UnorderedList>
-          <Appear>
-            <ListItem>
-              <Text>Error reporting?</Text>
-            </ListItem>
-          </Appear>
-          <Appear>
-            <ListItem>
-              <Text>Dashboards?</Text>
-            </ListItem>
-          </Appear>
-          <Appear>
-            <ListItem>
-              <Text>Session Replays?</Text>
-            </ListItem>
-          </Appear>
-        </UnorderedList>
-      </div>
+
+      <UnorderedList>
+        <Appear>
+          <ListItem>
+            <Text>Error reporting?</Text>
+          </ListItem>
+        </Appear>
+        <Appear>
+          <ListItem>
+            <Text>Dashboards?</Text>
+          </ListItem>
+        </Appear>
+        <Appear>
+          <ListItem>
+            <Text>Session Replays?</Text>
+          </ListItem>
+        </Appear>
+      </UnorderedList>
+
       <Notes>
         And what can we do to solve it? We add Grafana, Datadog? Good tools. And
         we spend a lot of time creating, observing, and analysing more and more
