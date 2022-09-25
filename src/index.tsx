@@ -99,7 +99,7 @@ const Presentation = () => (
       </FlexBox>
       <Notes>
         Do you remember? Almost the same. It's okay to have it, but it's not
-        enough if you don’t use it wisely.
+        enough if you don't use it wisely.
       </Notes>
     </Slide>
 

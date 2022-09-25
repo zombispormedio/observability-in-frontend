@@ -75,6 +75,20 @@ export const WhatCanWeDoSlides = () => {
           flexDirection="column"
         >
           <Image src={ErrorReportingSessionReplaysDashboards} width={600} />
+
+          <Appear className="absolute">
+            <div
+              className="-rotate-45"
+              style={{
+                backgroundColor: "rgba(0,0,0,0.8)",
+              }}
+            >
+              <Heading fontSize="h3" className="text-white uppercase">
+                From <span className="text-red-600">reactive</span> to{" "}
+                <span className="text-green-600">proactive</span>
+              </Heading>
+            </div>
+          </Appear>
         </FlexBox>
         <Notes>
           Do you remember? Almost the same. It's okay to have it, but it's not
