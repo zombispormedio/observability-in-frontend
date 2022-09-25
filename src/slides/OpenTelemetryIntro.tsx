@@ -71,25 +71,26 @@ export const OpenTelemetryIntroSlides = () => (
         height="100%"
         flexDirection="column"
       >
-        <Heading fontSize="h3">Don't forget!</Heading>
         <Heading fontSize="h3">Find your observability platform</Heading>
-        <div className="grid grid-cols-5 gap-10 mt-10">
+        <div className="grid grid-cols-3 gap-12 mt-10">
           <div className="flex justify-center">
-            <Image src={GrafanaLogo} />
-          </div>
-
-          <div className="flex justify-center">
-            <Image src={JaegerLogo} className="object-contain" />
-          </div>
-
-          <div className="flex justify-center">
-            <Image src={HoneycombLogo} width={300} />
+            <Image src={GrafanaLogo} width="300" />
           </div>
           <div className="flex justify-center">
             <Image src={LightstepLogo} width={300} />
           </div>
-          <div className="flex justify-center">
+          <div className="flex items-center">
             <Image src={DatadogLogo} width={300} className="object-contain" />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-10 mt-10">
+          <div className="flex justify-center">
+            <Image src={HoneycombLogo} width={300} />
+          </div>
+
+          <div className="flex justify-center">
+            <Image src={JaegerLogo} className="object-contain" width="300" />
           </div>
         </div>
       </FlexBox>

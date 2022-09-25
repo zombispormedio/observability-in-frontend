@@ -10,6 +10,7 @@ import {
   Box,
   Text,
   Notes,
+  Appear,
 } from "spectacle";
 import "./index.css";
 import avatar from "./images/avatar.jpg";
@@ -31,6 +32,7 @@ import { MeasurePageLoadNavigationSlides } from "./slides/MeasurePageDataLoadNav
 import { FutureSlides } from "./slides/Future";
 import { OpenTelemetryIntroSlides } from "./slides/OpenTelemetryIntro";
 import { WhatCanWeDoSlides } from "./slides/WhatCanWeDo";
+import ReactLogo from "./images/react.png";
 
 const theme = {
   colors: {
@@ -125,8 +127,11 @@ const Presentation = () => (
         height="100%"
         flexDirection="column"
       >
-        <Heading fontSize="h3">Instrument clients</Heading>
-        <Heading fontSize="h3">The challenge: Human Interaction</Heading>
+        <Heading fontSize="h3">
+          Instrument and observe <br />
+          <span className="text-green-600">React applications</span>
+        </Heading>
+        <Image src={ReactLogo} width={150} />
       </FlexBox>
       <Notes>
         And here we go to how to instrument clients using OpenTelemetry.
@@ -139,15 +144,20 @@ const Presentation = () => (
         height="100%"
         flexDirection="column"
       >
-        <Image src={example} width={1200} />
         <Heading fontSize="h3" className="underline cursor-pointer">
           <a
             href="https://github.com/zombispormedio/observable-flora"
             target="_blank"
           >
-            React application example
+            FMS (Flower Management System)
           </a>
         </Heading>
+        <Image src={example} width={1000} />
+        <Appear>
+          <Text className="text-white">
+            (React Query, Formik and React Router)
+          </Text>
+        </Appear>
       </FlexBox>
       <Notes>
         For this explanation, I created an example with a backend and a frontend

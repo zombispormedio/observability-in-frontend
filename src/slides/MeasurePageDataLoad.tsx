@@ -12,7 +12,7 @@ export const MeasurePageDataLoadSlides = () => (
         height="100%"
         flexDirection="column"
       >
-        <Heading fontSize="h3">Measure page load</Heading>
+        <Heading fontSize="h3">Measure load view</Heading>
         <Image src={loadViewExample} width={1200} />
       </FlexBox>
       <Notes>
@@ -26,7 +26,7 @@ export const MeasurePageDataLoadSlides = () => (
         height="100%"
         flexDirection="column"
       >
-        <Heading fontSize="h3">Measure page load</Heading>
+        <Heading fontSize="h3">Measure load view</Heading>
         <Image src={loadView} width={1224} />
       </FlexBox>
       <Notes>
@@ -37,8 +37,14 @@ export const MeasurePageDataLoadSlides = () => (
       </Notes>
     </Slide>
     <Slide>
-      <Heading fontSize="h3">Measure page load</Heading>
-      <CodePane language="jsx">{`const {
+      <Heading fontSize="h3">Measure load view</Heading>
+      <CodePane
+        language="jsx"
+        highlightRanges={[
+          [1, 11],
+          [13, 23],
+        ]}
+      >{`const {
     data: countData,
     isLoading: isPlantsCountLoading,
     isRefetching: isPlantsCountRefetching,
@@ -50,6 +56,11 @@ export const MeasurePageDataLoadSlides = () => (
     isRefetching: isPlantsRefetching,
   } = useTracedQuery(["plants"], getPlants);
 
+/**
+ * <TracedPage>
+ *  <PlantListPage />
+ * </TracePage>
+ **/
 useTracePageDataLoad(
   isPlantsCountLoading || isPlantsLoading,
   isPlantsCountRefetching || isPlantsRefetching
@@ -64,7 +75,7 @@ useTracePageDataLoad(
     </Slide>
 
     <Slide>
-      <Heading fontSize="h3">Measure page load</Heading>
+      <Heading fontSize="h3">Measure load view</Heading>
       <CodePane
         language="jsx"
         highlightRanges={[
@@ -151,7 +162,7 @@ useTracePageDataLoad(
       </Notes>
     </Slide>
     <Slide>
-      <Heading fontSize="h3">Measure page load</Heading>
+      <Heading fontSize="h3">Measure load view</Heading>
       <CodePane language="jsx">{`function useTracePageDataLoad(loading: boolean, refetching?: boolean) {
   const previousLoading = usePrevious(loading);
   const previousRefetching = usePrevious(refetching);
@@ -177,7 +188,7 @@ useTracePageDataLoad(
       </Notes>
     </Slide>
     <Slide>
-      <Heading fontSize="h3">Measure page load</Heading>
+      <Heading fontSize="h3">Measure load view</Heading>
       <CodePane
         language="jsx"
         highlightRanges={[
