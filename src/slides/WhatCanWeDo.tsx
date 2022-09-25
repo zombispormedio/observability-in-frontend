@@ -44,7 +44,7 @@ export const WhatCanWeDoSlides = () => {
           </Appear>
           <Appear>
             <ListItem className="flex">
-              <Text>Session Replays?</Text>
+              <Text>Session replays?</Text>
               <Image
                 src={SessionReplayDatadog}
                 width={800}

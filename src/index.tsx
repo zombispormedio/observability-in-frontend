@@ -17,7 +17,6 @@ import avatar from "./images/avatar.jpg";
 import trazableLogo from "./images/logo_trazable.png";
 import observabilityImage from "./images/observability.jpg";
 import ReactAlicanteCover from "./images/first-slides-2022.010-xavier.jpg";
-import ErrorReportingSessionReplaysDashboards from "./images/error_reporting_session_replays_dashboards.png";
 import { ErrorPerformanceSlides } from "./slides/ErrorPerformance";
 import { UserPainSlides } from "./slides/UserPain";
 import { ThankYouSlide } from "./slides/ThankYou";
@@ -88,21 +87,6 @@ const Presentation = () => (
     <UserPainSlides />
     <WhatCanWeDoSlides />
     <OpenTelemetryIntroSlides />
-    <Slide backgroundColor="rgb(255, 255, 255)">
-      <FlexBox
-        justifyContent="center"
-        alignContent="center"
-        height="100%"
-        flexDirection="column"
-      >
-        <Image src={ErrorReportingSessionReplaysDashboards} width={600} />
-      </FlexBox>
-      <Notes>
-        Do you remember? Almost the same. It's okay to have it, but it's not
-        enough if you don't use it wisely.
-      </Notes>
-    </Slide>
-
     <Slide className="text-white" backgroundColor="rgb(255, 255, 255)">
       <FlexBox
         justifyContent="center"
@@ -117,7 +101,10 @@ const Presentation = () => (
         </Text>
         <Image src={observabilityImage} width={450} />
       </FlexBox>
-      <Notes>I think it's important to know why we do this.</Notes>
+      <Notes>
+        I think it's important to know why we do this. It's okay to have it, but
+        it's not enough if you don't use it wisely.
+      </Notes>
     </Slide>
     <WhyObservabilitySlides />
     <Slide>

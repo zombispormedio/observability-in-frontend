@@ -13,18 +13,10 @@ export const ErrorPerformanceSlides = () => (
       <Text>TypeError: Cannot read property 'name' of undefined</Text>
       <Notes>
         Here we go. Wow. What. Sorry, it shouldn't be this way. This happens
-        when you code your own slides. Sorry. Let me check the next slide.
-      </Notes>
-    </Slide>
-    <Slide
-      className="full-slide text-4xl p-10 font-light"
-      backgroundColor="rgb(255, 255, 255)"
-    >
-      <Text>TypeError: undefined is not a function</Text>
-      <Notes>
-        What! No. This is wrong. This should be a slide with dynamic data, with
+        when you code your own slides. Sorry. Let me check the next slide. What!
+        No. This is wrong. This should be a slide with dynamic data, with
         charts, you know. Showing why observability is so important. Let me see
-        if we can save the next slide.
+        if we can save the next slide. It seems that my slides are full of bugs.
       </Notes>
     </Slide>
     <Slide
@@ -34,7 +26,8 @@ export const ErrorPerformanceSlides = () => (
       <Text>RangeError: Maximum call stack size exceeded</Text>
       <Notes>
         Noooo!! This error is worse. This happens when you do a last-minute
-        deployment. Off. I'm gonna try something.
+        deployment. Off. I'm gonna try something. Let try a rollback. Let me try
+        something.
       </Notes>
     </Slide>
     <Slide className="full-slide" transition={noTransition}>
