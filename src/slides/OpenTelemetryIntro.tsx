@@ -32,13 +32,14 @@ export const OpenTelemetryIntroSlides = () => (
         <Image src={logsMetricsAndLogs} width={400} />
       </FlexBox>
       <Notes>
-        Then we arrive at OpenTelemetry, the next observability standard in the
-        industry. It’s our war horse for understanding why our users are living
-        bad experiences. Incubated by the CNCF (Cloud Native Computing
-        Foundation). It has support for most languages and platforms. It has a
-        good specifications. It makes use of the three pillars of observability
-        (logs, metrics, traces) Logs, metrics, and traces for the front end,
-        what? Maybe logs and metrics are overkill for the front end, but traces.
+        Then OpenTelemetry appears, the next observability standard in the
+        industry, and we can use it in our web applications. It's our war horse
+        for understanding why our users are living bad experiences. Incubated by
+        the CNCF (Cloud Native Computing Foundation). It has support for most
+        languages and platforms. It has a good specifications. It makes use of
+        the three pillars of observability (logs, metrics, traces) Logs,
+        metrics, and traces for the front end, what? Maybe logs and metrics are
+        overkill for the front end, but traces.
       </Notes>
     </Slide>
     <Slide>
