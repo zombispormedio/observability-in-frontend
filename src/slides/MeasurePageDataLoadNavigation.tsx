@@ -57,18 +57,18 @@ export const MeasurePageLoadNavigationSlides = () => (
           [16, 19],
         ]}
       >{`const TracedNavigation = ({ children }: { children: ReactNode }) => {
-  const [navigationSpan, setNavigationSpan] = useState<Span | undefined>();
+  const navigationSpanRef = useRef<Span | undefined>();
   const value = useMemo(
     () => ({
-      currentSpan: navigationSpan,
+      getNavigationSpan: () => navigationSpanRef.current,
       applyNavigationSpan: () => {
-        setNavigationSpan(trace.getSpan(context.active()));
+        navigationSpanRef.current = trace.getSpan(context.active());
       },
       resetNavigationSpan: () => {
-        setNavigationSpan(undefined);
+        navigationSpanRef.current = undefined;
       },
     }),
-    [navigationSpan]
+    []
   );
 
   return (
@@ -103,7 +103,7 @@ export const MeasurePageLoadNavigationSlides = () => (
         page,
         "data.status": "first_loading",
       },
-      tracedNavigation.currentSpan
+      tracedNavigation.getNavigationSpan()
     );
     firstLoad.current = true;
   }
@@ -118,7 +118,7 @@ export const MeasurePageLoadNavigationSlides = () => (
               page,
               "data.status": "loading",
             },
-            tracedNavigation.currentSpan
+             tracedNavigation.getNavigationSpan()
           );
         }
 
