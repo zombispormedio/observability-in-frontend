@@ -12,6 +12,7 @@ import {
 import errorsChart from "../images/errors-chart.png";
 import errorTrace from "../images/error-trace.png";
 import HubbleTelescope from "../images/hubble-telescope.png";
+import observabilityImage from "../images/observability.jpg";
 
 export const WhyObservabilitySlides = () => (
   <>
@@ -56,6 +57,25 @@ export const WhyObservabilitySlides = () => (
         </Heading>
         <Image src={errorTrace} />
       </FlexBox>
+    </Slide>
+    <Slide className="text-white" backgroundColor="rgb(255, 255, 255)">
+      <FlexBox
+        justifyContent="center"
+        alignContent="center"
+        height="100%"
+        flexDirection="column"
+      >
+        <Text className="text-black uppercase">
+          It's not about dashboards, error reporting, session replays, logs,
+          metrics or traces. The thing that matters is that observability can
+          empower us to build better user experiences.
+        </Text>
+        <Image src={observabilityImage} width={450} />
+      </FlexBox>
+      <Notes>
+        I think it's important to know why we do this. It's okay to have it, but
+        it's not enough if you don't use it wisely.
+      </Notes>
     </Slide>
     <Slide className="text-white">
       <FlexBox justityContent="center">

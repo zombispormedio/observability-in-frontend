@@ -9,6 +9,7 @@ export const ErrorPerformanceSlides = () => (
     <Slide
       className="full-slide text-4xl p-10 font-light"
       backgroundColor="rgb(255, 255, 255)"
+      transition={noTransition}
     >
       <Text>TypeError: Cannot read property 'name' of undefined</Text>
       <Notes>
@@ -22,6 +23,7 @@ export const ErrorPerformanceSlides = () => (
     <Slide
       className="full-slide text-4xl p-10 font-light"
       backgroundColor="rgb(255, 255, 255)"
+      transition={noTransition}
     >
       <Text>RangeError: Maximum call stack size exceeded</Text>
       <Notes>

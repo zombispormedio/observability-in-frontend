@@ -15,7 +15,6 @@ import {
 import "./index.css";
 import avatar from "./images/avatar.jpg";
 import trazableLogo from "./images/logo_trazable.png";
-import observabilityImage from "./images/observability.jpg";
 import ReactAlicanteCover from "./images/first-slides-2022.010-xavier.jpg";
 import { ErrorPerformanceSlides } from "./slides/ErrorPerformance";
 import { UserPainSlides } from "./slides/UserPain";
@@ -86,26 +85,8 @@ const Presentation = () => (
     <ErrorPerformanceSlides />
     <UserPainSlides />
     <WhatCanWeDoSlides />
-    <OpenTelemetryIntroSlides />
-    <Slide className="text-white" backgroundColor="rgb(255, 255, 255)">
-      <FlexBox
-        justifyContent="center"
-        alignContent="center"
-        height="100%"
-        flexDirection="column"
-      >
-        <Text className="text-black uppercase">
-          It's not about dashboards, error reporting, session replays, logs,
-          metrics or traces. The thing that matters is that observability can
-          empower us to build better user experiences.
-        </Text>
-        <Image src={observabilityImage} width={450} />
-      </FlexBox>
-      <Notes>
-        I think it's important to know why we do this. It's okay to have it, but
-        it's not enough if you don't use it wisely.
-      </Notes>
-    </Slide>
+
+
     <WhyObservabilitySlides />
     <Slide>
       <FlexBox
@@ -124,6 +105,7 @@ const Presentation = () => (
         And here we go to how to instrument clients using OpenTelemetry.
       </Notes>
     </Slide>
+    <OpenTelemetryIntroSlides />
     <Slide>
       <FlexBox
         justifyContent="center"
