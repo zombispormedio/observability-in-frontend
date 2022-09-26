@@ -11,6 +11,7 @@ import {
   Text,
   Notes,
   Appear,
+  Link,
 } from "spectacle";
 import "./index.css";
 import avatar from "./images/avatar.jpg";
@@ -70,7 +71,14 @@ const Presentation = () => (
         <div className="text-white flex items-center flex-col pl-24">
           <Text>Xavier Serrano</Text>
           <Text>Software Engineer 🌍</Text>
-          <div className="bg-white mt-10 p-5">
+          <Link
+            href="https://twitter.com/Zombispormedio"
+            target="_blank"
+            className="text-green-600"
+          >
+            @zombispormedio
+          </Link>
+          <div className="bg-white mt-20 p-5 ">
             <Image src={trazableLogo} width={300} />
           </div>
         </div>
@@ -85,7 +93,6 @@ const Presentation = () => (
     <ErrorPerformanceSlides />
     <UserPainSlides />
     <WhatCanWeDoSlides />
-
 
     <WhyObservabilitySlides />
     <Slide>
