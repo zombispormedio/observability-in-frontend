@@ -33,8 +33,7 @@ export const MeasureActionsSlides = () => (
       <CodePane
         language="jsx"
         highlightRanges={[
-          [1, 6],
-          [8, 16],
+          [1, 16],
           [18, 34],
         ]}
       >{`const { mutate: createPlantMutate } = useTracedMutation(createPlant, {

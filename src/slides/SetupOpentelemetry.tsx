@@ -9,7 +9,6 @@ export const SetupOpenTelemetrySlide = () => (
       highlightRanges={[
         [1, 16],
         [18, 24],
-        [26, 28],
         [30, 43],
       ]}
     >{`import { OTLPTraceExporter } from "@opentelemetry/exporter-trace-otlp-http";
